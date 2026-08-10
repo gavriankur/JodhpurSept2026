@@ -1,5 +1,4 @@
-
-                        <!DOCTYPE html>
+<!DOCTYPE html>
                         <html lang="en">
                         <head>
                             <meta charset="UTF-8">
@@ -2075,20 +2074,39 @@ document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 document.querySelectorAll('nav a').forEach(link => {
     link.addEventListener('click', () => document.querySelector('nav ul').classList.remove('active'));
 });
+</script>
 
-// ============================================
-// EXPENSE TRACKER
-// ============================================
+<!-- ============================================
+     EXPENSE TRACKER — Firebase Firestore (live sync)
+     ============================================ -->
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-app.js";
+import {
+    getFirestore, collection, addDoc, deleteDoc, doc, onSnapshot, serverTimestamp
+} from "https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore.js";
 
-const EXP_STORAGE_KEY = 'rajasthan-trip-expenses';
+const firebaseConfig = {
+    apiKey: "AIzaSyD0ydQu51WRiNtsil7JVomzARQRFtfjQ4g",
+    authDomain: "rajasthan-trip-e6eb1.firebaseapp.com",
+    projectId: "rajasthan-trip-e6eb1",
+    storageBucket: "rajasthan-trip-e6eb1.firebasestorage.app",
+    messagingSenderId: "1032373274201",
+    appId: "1:1032373274201:web:d0312edee045cab04e1348",
+    measurementId: "G-NN8MK0JQ8L"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+const expensesCol = collection(db, "expenses");
+
 let expExpenses = [];
 
 function expFormatMoney(n) {
     return '₹' + Number(n).toLocaleString('en-IN');
 }
 
-function expFormatTime(iso) {
-    const d = new Date(iso);
+function expFormatTime(ts) {
+    const d = ts && ts.toDate ? ts.toDate() : new Date(ts || Date.now());
     return d.toLocaleString('en-IN', { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' });
 }
 
@@ -2111,7 +2129,12 @@ function expRender() {
         return;
     }
 
-    const sorted = [...expExpenses].sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+    const sorted = [...expExpenses].sort((a, b) => {
+        const ta = a.timestamp && a.timestamp.toMillis ? a.timestamp.toMillis() : 0;
+        const tb = b.timestamp && b.timestamp.toMillis ? b.timestamp.toMillis() : 0;
+        return tb - ta;
+    });
+
     entriesEl.innerHTML = sorted.map(e => `
         <div class="exp-entry">
             <div>
@@ -2141,58 +2164,38 @@ function expRender() {
     `).join('');
 }
 
-async function expLoad() {
+function expSetStatus(text, isError) {
     const statusEl = document.getElementById('expStatus');
-    if (!window.storage) {
-        statusEl.textContent = 'Storage unavailable in this view — entries won\'t be saved.';
-        expExpenses = [];
-        expRender();
-        return;
-    }
-    try {
-        const result = await window.storage.get(EXP_STORAGE_KEY, true);
-        expExpenses = result ? JSON.parse(result.value) : [];
-        statusEl.textContent = 'Synced · visible to everyone on the trip';
-    } catch (e) {
-        expExpenses = [];
-        statusEl.textContent = 'No saved expenses found yet — add your first one below.';
-    }
-    expRender();
+    if (!statusEl) return;
+    statusEl.textContent = text;
+    statusEl.style.color = isError ? 'var(--maroon)' : '';
 }
 
-async function expSave() {
-    const statusEl = document.getElementById('expStatus');
-    if (!window.storage) {
-        statusEl.textContent = 'Storage unavailable — this entry is only visible until you refresh.';
-        return;
-    }
-    try {
-        await window.storage.set(EXP_STORAGE_KEY, JSON.stringify(expExpenses), true);
-        statusEl.textContent = 'Synced · visible to everyone on the trip';
-    } catch (e) {
-        statusEl.textContent = 'Save failed: ' + (e && e.message ? e.message : 'unknown error');
-    }
-}
+// Live sync — updates instantly for everyone viewing the page
+onSnapshot(expensesCol, (snapshot) => {
+    expExpenses = snapshot.docs.map(d => ({ id: d.id, ...d.data() }));
+    expRender();
+    expSetStatus('Synced live · visible to everyone on the trip', false);
+}, (err) => {
+    expSetStatus('Could not connect to the shared database: ' + err.message, true);
+});
 
 async function expRemove(id) {
-    expExpenses = expExpenses.filter(e => e.id !== id);
-    expRender();
-    await expSave();
+    try {
+        await deleteDoc(doc(db, "expenses", id));
+    } catch (e) {
+        expSetStatus('Could not delete: ' + (e && e.message ? e.message : e), true);
+    }
 }
 
 async function expHandleAdd() {
     const submitBtn = document.getElementById('expSubmitBtn');
-    const statusEl = document.getElementById('expStatus');
-    statusEl.textContent = 'Working…';
-    statusEl.style.color = '';
-
     const desc = document.getElementById('expDesc').value.trim();
     const payer = document.getElementById('expPayer').value.trim();
     const amount = document.getElementById('expAmount').value;
 
     if (!desc || !payer || !amount) {
-        statusEl.textContent = 'Please fill in what it was for, who paid, and the amount.';
-        statusEl.style.color = 'var(--maroon)';
+        expSetStatus('Please fill in what it was for, who paid, and the amount.', true);
         return;
     }
 
@@ -2200,22 +2203,17 @@ async function expHandleAdd() {
     submitBtn.textContent = 'Adding…';
 
     try {
-        expExpenses.push({
-            id: Date.now().toString() + Math.random().toString(36).slice(2, 7),
+        await addDoc(expensesCol, {
             desc, payer,
             amount: Number(amount),
-            timestamp: new Date().toISOString()
+            timestamp: serverTimestamp()
         });
-
-        expRender();
-        await expSave();
 
         document.getElementById('expDesc').value = '';
         document.getElementById('expPayer').value = '';
         document.getElementById('expAmount').value = '';
     } catch (e) {
-        statusEl.textContent = 'Something went wrong adding this entry: ' + (e && e.message ? e.message : e);
-        statusEl.style.color = 'var(--maroon)';
+        expSetStatus('Something went wrong adding this entry: ' + (e && e.message ? e.message : e), true);
     } finally {
         submitBtn.disabled = false;
         submitBtn.textContent = 'Add expense';
@@ -2230,16 +2228,7 @@ if (expSubmitBtnEl) {
         expHandleAdd();
     });
 }
-
-expLoad();
 </script>
 
 </body>
 </html>
-
-							<script>
-                            	
-							</script>
-                        </body>
-                        </html>
-                    
