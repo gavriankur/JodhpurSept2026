@@ -1,0 +1,2213 @@
+<!DOCTYPE html>
+                        <html lang="en">
+                        <head>
+                            <meta charset="UTF-8">
+                            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+							<style>
+								body {
+									background-color: white; /* Ensure the iframe has a white background */
+								}
+
+								
+							</style>
+                        </head>
+                        <body>
+                            <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jaisalmer & Jodhpur 🐫🏰 | Sept 11–16</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --sand: #D4A854;
+            --sand-light: #FAF6F0;
+            --saffron: #C47A2A;
+            --maroon: #6B2D2D;
+            --gold: #B8963E;
+            --blue: #3D7EAA;
+            --cream: #FDFCFA;
+            --text: #1A1A1A;
+            --text-secondary: #6B6B6B;
+            --text-tertiary: #999;
+            --border: #E8E4DE;
+            --card-bg: #FFFFFF;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--cream);
+            color: var(--text);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        /* ===== Accent Line ===== */
+        .accent-line {
+            height: 3px;
+            background: linear-gradient(90deg, var(--maroon), var(--saffron), var(--gold));
+        }
+
+        /* ===== Nav ===== */
+        nav {
+            background: white;
+            border-bottom: 1px solid var(--border);
+            padding: 0 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-inner {
+            max-width: 1080px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 56px;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            color: var(--maroon);
+            font-weight: 700;
+        }
+
+        .logo span { font-weight: 400; color: var(--text-tertiary); font-family: 'Inter', sans-serif; font-size: 0.8rem; margin-left: 0.5rem; }
+
+        nav ul { list-style: none; display: flex; gap: 1.8rem; }
+
+        nav ul li a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+            transition: color 0.2s;
+        }
+
+        nav ul li a:hover { color: var(--maroon); }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .menu-toggle span { width: 20px; height: 1.5px; background: var(--text); }
+
+        /* ===== Hero ===== */
+        .hero {
+            padding: 6rem 2rem 5rem;
+            text-align: center;
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        .hero .overline {
+            font-size: 0.7rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--saffron);
+            margin-bottom: 1.2rem;
+            font-weight: 500;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.2rem;
+            font-weight: 700;
+            color: var(--text);
+            line-height: 1.15;
+            margin-bottom: 1rem;
+        }
+
+        .hero .tagline {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            font-weight: 300;
+            margin-bottom: 2.5rem;
+            line-height: 1.6;
+        }
+
+        .hero-meta {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-meta-item {
+            text-align: center;
+        }
+
+        .hero-meta-item .label {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-tertiary);
+            margin-bottom: 0.25rem;
+        }
+
+        .hero-meta-item .value {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .route-flow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            margin-top: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        .route-city {
+            padding: 0.4rem 1rem;
+            background: var(--sand-light);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .route-arrow { color: var(--text-tertiary); font-size: 0.8rem; }
+
+        /* ===== Expenses ===== */
+        .exp-summary {
+            background: linear-gradient(135deg, var(--saffron), var(--maroon));
+            color: #fff;
+            border-radius: 12px;
+            padding: 1.4rem 1.6rem;
+            margin-bottom: 1.8rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .exp-summary-label { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 2px; opacity: 0.85; margin-bottom: 0.2rem; }
+        .exp-summary-total { font-size: 1.7rem; font-weight: 700; font-family: 'Playfair Display', serif; }
+        .exp-per-person { display: flex; gap: 1.2rem; flex-wrap: wrap; }
+        .exp-per-person div { font-size: 0.78rem; }
+        .exp-per-person span { display: block; font-weight: 700; font-size: 1rem; }
+
+        .exp-form {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.2rem;
+            margin-bottom: 1.6rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.7rem;
+        }
+        .exp-field-full { grid-column: 1 / -1; }
+        .exp-field label { font-size: 0.7rem; color: var(--text-secondary); display: block; margin-bottom: 0.3rem; }
+        .exp-field input {
+            width: 100%;
+            padding: 0.55rem 0.6rem;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-family: 'Inter', sans-serif;
+            background: var(--sand-light);
+        }
+        .exp-field input:focus { outline: none; border-color: var(--saffron); }
+        #expSubmitBtn {
+            grid-column: 1 / -1;
+            background: var(--maroon);
+            color: #fff;
+            border: none;
+            padding: 0.65rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            font-family: 'Inter', sans-serif;
+            cursor: pointer;
+        }
+        #expSubmitBtn:hover { background: #58231F; }
+        #expSubmitBtn:disabled { opacity: 0.6; cursor: default; }
+
+        .exp-entries { display: flex; flex-direction: column; gap: 0.5rem; }
+        .exp-entry {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 0.8rem 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .exp-entry .exp-desc { font-weight: 600; font-size: 0.85rem; }
+        .exp-entry .exp-meta { font-size: 0.72rem; color: var(--text-tertiary); margin-top: 0.15rem; }
+        .exp-entry .exp-amt { font-weight: 700; font-size: 0.9rem; color: var(--maroon); white-space: nowrap; margin-left: 0.6rem; }
+        .exp-entry-right { display: flex; align-items: center; }
+        .exp-del {
+            background: none; border: none; color: var(--text-tertiary); cursor: pointer;
+            font-size: 1.1rem; margin-left: 0.5rem; padding: 0 0.25rem;
+        }
+        .exp-del:hover { color: var(--maroon); }
+        .exp-empty { text-align: center; color: var(--text-tertiary); padding: 2rem 0; font-size: 0.85rem; }
+        .exp-status { font-size: 0.72rem; color: var(--text-tertiary); text-align: center; margin-top: 1.2rem; }
+
+        /* ===== Sections ===== */
+        section { padding: 4rem 2rem; }
+
+        .container { max-width: 1080px; margin: 0 auto; }
+
+        .section-header { margin-bottom: 2.5rem; }
+
+        .section-header .overline {
+            font-size: 0.65rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--saffron);
+            font-weight: 600;
+            margin-bottom: 0.4rem;
+        }
+
+        .section-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--text);
+            font-weight: 700;
+            margin-bottom: 0.3rem;
+        }
+
+        .section-header p {
+            color: var(--text-secondary);
+            font-size: 0.88rem;
+            font-weight: 300;
+            max-width: 520px;
+        }
+
+        .section-divider {
+            border: none;
+            border-top: 1px solid var(--border);
+            margin: 0;
+        }
+
+        /* ===== Timeline ===== */
+        .overview { background: white; }
+
+        .timeline { display: flex; flex-direction: column; gap: 0; }
+
+        .tl-item {
+            display: grid;
+            grid-template-columns: 120px 1fr;
+            gap: 1.5rem;
+            padding: 1.5rem 0;
+            border-bottom: 1px solid var(--border);
+            align-items: start;
+        }
+
+        .tl-item:last-child { border-bottom: none; }
+
+        .tl-date {
+            font-size: 0.72rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--saffron);
+            padding-top: 0.15rem;
+        }
+
+        .tl-date.blue { color: var(--blue); }
+        .tl-date.muted { color: var(--text-tertiary); }
+
+        .tl-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.05rem;
+            margin-bottom: 0.3rem;
+            font-weight: 700;
+        }
+
+        .tl-content p {
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        .tl-tags { display: flex; gap: 0.5rem; margin-top: 0.5rem; flex-wrap: wrap; }
+
+        .tag {
+            font-size: 0.68rem;
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+
+        .tag-sand { background: #F5EDE0; color: #8B6914; }
+        .tag-blue { background: #E8F1F8; color: var(--blue); }
+        .tag-gold { background: #FFF6E5; color: #9A7520; }
+        .tag-green { background: #E8F5E8; color: #2E7D32; }
+
+        /* ===== Stay Info ===== */
+        .stay-cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .stay-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1.8rem;
+        }
+
+        .stay-card .stay-label {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--text-tertiary);
+            margin-bottom: 0.6rem;
+            font-weight: 500;
+        }
+
+        .stay-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.15rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .stay-detail {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            padding: 0.3rem 0;
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .stay-detail .icon { flex-shrink: 0; width: 16px; }
+
+        .stay-inclusions {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .stay-inclusions h4 {
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-tertiary);
+            margin-bottom: 0.5rem;
+        }
+
+        .stay-inclusions ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .stay-inclusions li {
+            font-size: 0.78rem;
+            color: var(--text-secondary);
+            padding: 0.2rem 0;
+            padding-left: 1rem;
+            position: relative;
+        }
+
+        .stay-inclusions li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--gold);
+            font-size: 0.7rem;
+        }
+
+        /* ===== Place Cards ===== */
+        .places-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+            gap: 1.2rem;
+        }
+
+        .place-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: box-shadow 0.2s, transform 0.2s;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .place-card:hover {
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            transform: translateY(-2px);
+        }
+
+        .place-card-img {
+            height: 140px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            position: relative;
+        }
+
+        .place-card-img.golden { background: linear-gradient(135deg, #F5DEB3, #DEB887); }
+        .place-card-img.blue-city { background: linear-gradient(135deg, #B8D4E8, #87BBDB); }
+
+        .place-type-label {
+            position: absolute;
+            top: 0.8rem;
+            right: 0.8rem;
+            background: rgba(255,255,255,0.92);
+            padding: 0.15rem 0.5rem;
+            border-radius: 3px;
+            font-size: 0.6rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-secondary);
+        }
+
+        .place-card-body { padding: 1.2rem; }
+
+        .place-card-body h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.05rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .place-card-body .desc {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+            margin-bottom: 0.8rem;
+        }
+
+        .place-card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .place-time {
+            font-size: 0.72rem;
+            color: var(--text-tertiary);
+        }
+
+        .place-link {
+            font-size: 0.72rem;
+            color: var(--saffron);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .place-tag {
+            font-size: 0.62rem;
+            padding: 0.15rem 0.5rem;
+            border-radius: 3px;
+            font-weight: 600;
+        }
+
+        .place-tag.must { background: #FDECEA; color: var(--maroon); }
+        .place-tag.rec { background: #FFF6E5; color: #9A7520; }
+        .place-tag.opt { background: #E8F5E8; color: #2E7D32; }
+
+        /* ===== Experience Cards ===== */
+        .exp-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+            gap: 1.2rem;
+        }
+
+        .exp-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1.5rem;
+            cursor: pointer;
+            transition: box-shadow 0.2s, transform 0.2s;
+            display: block;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .exp-card:hover {
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            transform: translateY(-2px);
+        }
+
+        .exp-card .exp-icon { font-size: 1.8rem; margin-bottom: 0.8rem; }
+
+        .exp-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .exp-card .desc {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+            margin-bottom: 0.8rem;
+        }
+
+        .exp-card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* ===== Road Trip Banner ===== */
+        .road-banner {
+            background: var(--sand-light);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            padding: 3rem 2rem;
+        }
+
+        .road-banner .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .road-banner h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .road-banner p { font-size: 0.82rem; color: var(--text-secondary); }
+
+        .road-stats { display: flex; gap: 2.5rem; flex-wrap: wrap; }
+
+        .road-stat { text-align: center; }
+
+        .road-stat .val { font-size: 1.1rem; font-weight: 600; }
+        .road-stat .lbl { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--text-tertiary); }
+
+        /* ===== Food ===== */
+        .food-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 1rem;
+        }
+
+        .food-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.2rem;
+            text-align: center;
+            cursor: pointer;
+            transition: box-shadow 0.2s, transform 0.2s;
+        }
+
+        .food-card:hover {
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            transform: translateY(-2px);
+        }
+
+        .food-card .emoji { font-size: 2rem; margin-bottom: 0.5rem; }
+
+        .food-card h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 0.95rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .food-card p { font-size: 0.75rem; color: var(--text-secondary); line-height: 1.4; }
+
+        /* ===== Tips ===== */
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.2rem;
+        }
+
+        .tip-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+        }
+
+        .tip-card h4 {
+            font-size: 0.88rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+        }
+
+        .tip-card ul { list-style: none; }
+
+        .tip-card li {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            padding: 0.25rem 0;
+            padding-left: 1rem;
+            position: relative;
+        }
+
+        .tip-card li::before {
+            content: '·';
+            position: absolute;
+            left: 0;
+            font-weight: 700;
+            color: var(--saffron);
+        }
+
+        /* ===== Footer ===== */
+        footer {
+            text-align: center;
+            padding: 2.5rem 2rem;
+            border-top: 1px solid var(--border);
+        }
+
+        footer p { font-size: 0.75rem; color: var(--text-tertiary); }
+
+        /* ===== Responsive ===== */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            .places-grid, .exp-grid { grid-template-columns: 1fr; }
+            .stay-cards { grid-template-columns: 1fr; }
+            .tl-item { grid-template-columns: 1fr; gap: 0.3rem; }
+            .route-flow { flex-direction: column; }
+            .road-banner .container { flex-direction: column; text-align: center; }
+            .road-stats { justify-content: center; }
+
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 1rem 2rem;
+                border-bottom: 1px solid var(--border);
+            }
+
+            nav ul.active { display: flex; }
+            .menu-toggle { display: flex; }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 { font-size: 1.8rem; }
+            .food-grid { grid-template-columns: 1fr 1fr; }
+            .hero-meta { gap: 1.2rem; }
+        }
+
+        /* ===== Fade ===== */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(15px);
+            transition: opacity 0.5s, transform 0.5s;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+<div class="accent-line"></div>
+
+<nav>
+    <div class="nav-inner">
+        <div class="logo">Jaisalmer & Jodhpur <span>Sept '26</span></div>
+        <button class="menu-toggle" onclick="document.querySelector('nav ul').classList.toggle('active')" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+        <ul>
+            <li><a href="#itinerary">Itinerary</a></li>
+            <li><a href="#stays">Stays</a></li>
+            <li><a href="#jaisalmer">Jaisalmer</a></li>
+            <li><a href="#jodhpur">Jodhpur</a></li>
+            <li><a href="#experiences">Experiences</a></li>
+            <li><a href="#food">Food</a></li>
+            <li><a href="#tips">Tips</a></li>
+            <li><a href="#expenses">Expenses</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+    <p class="overline">🐫 Padharo Mhare Des</p>
+    <h1>Golden Sands & Blue Horizons</h1>
+    <p class="tagline">A six-day journey from Bangalore through the golden dunes of Jaisalmer to the blue lanes of Jodhpur — with 8 travellers, a tempo traveller, and a lot of chai.</p>
+
+    <div class="hero-meta">
+        <div class="hero-meta-item">
+            <div class="label">Dates</div>
+            <div class="value">Sept 11 – 16</div>
+        </div>
+        <div class="hero-meta-item">
+            <div class="label">Travellers</div>
+            <div class="value">8 Guests</div>
+        </div>
+        <div class="hero-meta-item">
+            <div class="label">Transport</div>
+            <div class="value">Urbania TT</div>
+        </div>
+        <div class="hero-meta-item">
+            <div class="label">Flights</div>
+            <div class="value">BLR ↔ JDH</div>
+        </div>
+    </div>
+
+    <div class="route-flow">
+        <span class="route-city">✈ Bangalore</span>
+        <span class="route-arrow">→</span>
+        <span class="route-city">🏜️ Jaisalmer</span>
+        <span class="route-arrow">→</span>
+        <span class="route-city">🚐 Road</span>
+        <span class="route-arrow">→</span>
+        <span class="route-city">🏰 Jodhpur</span>
+        <span class="route-arrow">→</span>
+        <span class="route-city">✈ Bangalore</span>
+    </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- Itinerary -->
+<section class="overview" id="itinerary">
+    <div class="container">
+        <div class="section-header">
+            <p class="overline">The Journey</p>
+            <h2>Day by Day</h2>
+        </div>
+
+        <div class="timeline">
+            <div class="tl-item fade-in">
+                <div class="tl-date">Sept 11 · D1</div>
+                <div class="tl-content">
+                    <h3>Arrive in Jaisalmer</h3>
+                    <p>Fly BLR → JDH, drive to Sam Sand Dunes. Check in at Le Royal Camps after 3 PM. Evening desert settle-in, welcome drinks, bonfire & dinner at camp.</p>
+                    <div class="tl-tags">
+                        <span class="tag tag-sand">🏕️ Le Royal Camps</span>
+                        <span class="tag tag-green">Dinner included</span>
+                    </div>
+                </div>
+            </div>
+            <div class="tl-item fade-in">
+                <div class="tl-date">Sept 12 · D2</div>
+                <div class="tl-content">
+                    <h3>Explore Jaisalmer</h3>
+                    <p>Full day — Jaisalmer Fort, Patwon Ki Haveli, Gadisar Lake in the morning. Afternoon camel ride (complimentary at camp 4:30–6 PM). Sunset at Sam Dunes. Evening folk music, cultural performance & DJ at camp.</p>
+                    <div class="tl-tags">
+                        <span class="tag tag-sand">🏕️ Le Royal Camps</span>
+                        <span class="tag tag-green">BF + Dinner incl.</span>
+                        <span class="tag tag-gold">🐪 Free camel ride</span>
+                    </div>
+                </div>
+            </div>
+            <div class="tl-item fade-in">
+                <div class="tl-date muted">Sept 13 · D3</div>
+                <div class="tl-content">
+                    <h3>Jaisalmer → Jodhpur by Road</h3>
+                    <p>Check out by 10:30 AM. Drive ~285 km in the Urbania Tempo Traveller. Lunch stop at Khusbhoo Haveli Restaurant, Pokhran. Arrive Jodhpur, check in at The Ummed after 2 PM.</p>
+                    <div class="tl-tags">
+                        <span class="tag tag-gold">🚐 ~5 hrs drive</span>
+                        <span class="tag tag-blue">🏨 The Ummed Jodhpur</span>
+                    </div>
+                </div>
+            </div>
+            <div class="tl-item fade-in">
+                <div class="tl-date blue">Sept 14 · D4</div>
+                <div class="tl-content">
+                    <h3>Jodhpur Heritage Day</h3>
+                    <p>Mehrangarh Fort (morning, 3–4 hrs), Jaswant Thada, Toorji Ka Jhalra stepwell. Afternoon at Ummed pool. Evening Clock Tower market walk & Mishrilal Lassi.</p>
+                    <div class="tl-tags">
+                        <span class="tag tag-blue">🏨 The Ummed Jodhpur</span>
+                        <span class="tag tag-green">BF + Happy Hrs</span>
+                    </div>
+                </div>
+            </div>
+            <div class="tl-item fade-in">
+                <div class="tl-date blue">Sept 15 · D5</div>
+                <div class="tl-content">
+                    <h3>Jodhpur Immersion</h3>
+                    <p>Blue City heritage walk, Umaid Bhawan Palace museum, Rao Jodha Desert Rock Park. Shopping at Sardar Market. Dinner at Mehran Terrace (fort-view restaurant).</p>
+                    <div class="tl-tags">
+                        <span class="tag tag-blue">🏨 The Ummed Jodhpur</span>
+                        <span class="tag tag-gold">🍽️ Mehran Terrace dinner</span>
+                    </div>
+                </div>
+            </div>
+            <div class="tl-item fade-in">
+                <div class="tl-date blue">Sept 16 · D6</div>
+                <div class="tl-content">
+                    <h3>Departure</h3>
+                    <p>Check out by 12 PM. Last-minute shopping if time permits. 8 AM airport drop in Tempo Traveller. Fly JDH → BLR.</p>
+                    <div class="tl-tags">
+                        <span class="tag tag-blue">✈ JDH → BLR</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- Stays -->
+<section id="stays">
+    <div class="container">
+        <div class="section-header">
+            <p class="overline">Where We Stay</p>
+            <h2>Confirmed Bookings</h2>
+        </div>
+
+        <div class="stay-cards">
+            <div class="stay-card fade-in">
+                <div class="stay-label">Jaisalmer · Sept 11–13</div>
+                <h3>Le Royal Camps</h3>
+                <div class="stay-detail"><span class="icon">📍</span> Near Kanoi Village, Sam Road, Sam, Jaisalmer</div>
+                <div class="stay-detail"><span class="icon">🛏️</span> 2 Rooms · Royal Suite (AC + Heater) · King Bed</div>
+                <div class="stay-detail"><span class="icon">👥</span> 8 Guests · 2 Nights</div>
+                <div class="stay-detail"><span class="icon">⏰</span> Check-in 3:00 PM · Check-out 10:30 AM</div>
+                <div class="stay-detail"><span class="icon">💰</span> ₹24,962 total</div>
+                <div class="stay-inclusions">
+                    <h4>Inclusions</h4>
+                    <ul>
+                        <li>Buffet breakfast (7–9:30 AM) & dinner (8–10 PM)</li>
+                        <li>Desert Jeep Safari at 30% off</li>
+                        <li>Complimentary camel ride (4:30–6 PM)</li>
+                        <li>Live music, cultural programme, dance, aarti</li>
+                        <li>Welcome drinks, bonfire</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="stay-card fade-in">
+                <div class="stay-label">Jodhpur · Sept 13–16</div>
+                <h3>The Ummed Jodhpur Palace Resort & Spa</h3>
+                <div class="stay-detail"><span class="icon">📍</span> Banar Road, Prem Nagar, Jodhpur 342027</div>
+                <div class="stay-detail"><span class="icon">🛏️</span> 2 Rooms · Luxury Garden · King / Twin</div>
+                <div class="stay-detail"><span class="icon">👥</span> 8 Guests · 3 Nights</div>
+                <div class="stay-detail"><span class="icon">⏰</span> Check-in 2:00 PM · Check-out 12:00 PM</div>
+                <div class="stay-detail"><span class="icon">💰</span> ₹32,259 total</div>
+                <div class="stay-inclusions">
+                    <h4>Inclusions</h4>
+                    <ul>
+                        <li>Complimentary breakfast</li>
+                        <li>15% discount on food & beverage</li>
+                        <li>Happy Hours 1+1 offer (drinks billed)</li>
+                        <li>1 extra bed/mattress at no cost per room</li>
+                        <li>Swimming pool access</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div style="margin-top: 1.5rem; padding: 1.2rem; background: var(--sand-light); border-radius: 8px; border: 1px solid var(--border);" class="fade-in">
+            <div style="display: flex; gap: 1.5rem; align-items: center; flex-wrap: wrap; justify-content: space-between;">
+                <div>
+                    <div style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 2px; color: var(--text-tertiary); margin-bottom: 0.2rem;">Transport · All 6 Days</div>
+                    <div style="font-weight: 600; font-size: 0.95rem;">Force Urbania Tempo Traveller</div>
+                    <div style="font-size: 0.8rem; color: var(--text-secondary);">Airport pickup → Jaisalmer → Jodhpur → Airport drop · ₹40,500 all-inclusive</div>
+                </div>
+                <div style="text-align: center;">
+                    <div style="font-size: 1.4rem;">🚐</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- Jaisalmer Places -->
+<section id="jaisalmer">
+    <div class="container">
+        <div class="section-header">
+            <p class="overline">The Golden City</p>
+            <h2>Jaisalmer — Places to Visit</h2>
+            <p>Click any card for details, photos, and tips.</p>
+        </div>
+
+        <div class="places-grid" id="jaisalmer-grid"></div>
+    </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- Road Trip Banner -->
+<div class="road-banner">
+    <div class="container">
+        <div>
+            <h3>🚐 The Road Trip — Sept 13</h3>
+            <p>Jaisalmer → Jodhpur via NH-15 in Urbania Tempo Traveller</p>
+            <p style="margin-top: 0.5rem; font-size: 0.78rem;"><strong>Lunch stop:</strong> Khusbhoo Haveli Restaurant, Pokhran</p>
+        </div>
+        <div class="road-stats">
+            <div class="road-stat">
+                <div class="val">~285 km</div>
+                <div class="lbl">Distance</div>
+            </div>
+            <div class="road-stat">
+                <div class="val">5–6 hrs</div>
+                <div class="lbl">Drive</div>
+            </div>
+            <div class="road-stat">
+                <div class="val">Pokhran</div>
+                <div class="lbl">Pit Stop</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Jodhpur Places -->
+<section id="jodhpur">
+    <div class="container">
+        <div class="section-header">
+            <p class="overline" style="color: var(--blue);">The Blue City</p>
+            <h2>Jodhpur — Places to Visit</h2>
+            <p>Click any card for details, photos, and tips.</p>
+        </div>
+
+        <div class="places-grid" id="jodhpur-grid"></div>
+    </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- Experiences -->
+<section id="experiences">
+    <div class="container">
+        <div class="section-header">
+            <p class="overline">Beyond Sightseeing</p>
+            <h2>Experiences to Consider</h2>
+            <p>Click to open full details in a new tab.</p>
+        </div>
+
+        <div class="exp-grid" id="exp-grid"></div>
+    </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- Food -->
+<section id="food">
+    <div class="container">
+        <div class="section-header">
+            <p class="overline">Taste of Rajasthan</p>
+            <h2>What to Eat</h2>
+            <p>Click any dish for the full story.</p>
+        </div>
+
+        <div class="food-grid" id="food-grid"></div>
+    </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- Tips -->
+<section id="tips">
+    <div class="container">
+        <div class="section-header">
+            <p class="overline">Good to Know</p>
+            <h2>Travel Tips</h2>
+            <p>September is late monsoon — warm, possible showers, and fewer crowds.</p>
+        </div>
+
+        <div class="tips-grid">
+            <div class="tip-card fade-in">
+                <h4>☀️ Weather</h4>
+                <ul>
+                    <li>28–38°C, warm and humid</li>
+                    <li>Possible monsoon showers — carry a light rain jacket</li>
+                    <li>Desert evenings can be pleasant</li>
+                    <li>Shoulder season — fewer tourists, better prices</li>
+                </ul>
+            </div>
+            <div class="tip-card fade-in">
+                <h4>🎒 Packing</h4>
+                <ul>
+                    <li>Light breathable cotton clothes</li>
+                    <li>Comfortable walking shoes (forts have steep paths)</li>
+                    <li>Sunscreen SPF 50+, sunglasses, hat</li>
+                    <li>Light scarf for temples & sand</li>
+                    <li>Power bank, camera, reusable water bottle</li>
+                    <li>Carry Aadhaar / Passport for hotel check-in</li>
+                </ul>
+            </div>
+            <div class="tip-card fade-in">
+                <h4>💡 Pro Tips</h4>
+                <ul>
+                    <li>Visit forts early morning to beat the heat</li>
+                    <li>Carry cash — many shops & vendors are cash-only</li>
+                    <li>Negotiate at markets — start at 40–50% of asking price</li>
+                    <li>Stay hydrated — desert heat is deceptively draining</li>
+                    <li>Mishrilal Lassi near Clock Tower is non-negotiable</li>
+                    <li>Rooftop cafés in both cities = best views</li>
+                    <li>Mehran Terrace at Mehrangarh — book ahead for the 15th</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- Expenses -->
+<section id="expenses">
+    <div class="container">
+        <div class="section-header">
+            <p class="overline">Full Transparency</p>
+            <h2>Trip Expenses</h2>
+            <p>Log what you spent, who paid, and when — everyone on the trip can see it.</p>
+        </div>
+
+        <div class="exp-summary">
+            <div>
+                <div class="exp-summary-label">Total spent</div>
+                <div class="exp-summary-total" id="expTotalAmt">₹0</div>
+            </div>
+            <div class="exp-per-person" id="expPerPerson"></div>
+        </div>
+
+        <div class="exp-form">
+            <div class="exp-field exp-field-full">
+                <label>What was it for</label>
+                <input type="text" id="expDesc" placeholder="e.g. Camel safari, dinner, fuel">
+            </div>
+            <div class="exp-field">
+                <label>Paid by</label>
+                <input type="text" id="expPayer" placeholder="Name">
+            </div>
+            <div class="exp-field">
+                <label>Amount (₹)</label>
+                <input type="number" id="expAmount" placeholder="0" min="0" step="1">
+            </div>
+            <button type="button" id="expSubmitBtn">Add expense</button>
+        </div>
+
+        <div class="exp-entries" id="expEntries"></div>
+        <div class="exp-status" id="expStatus">Loading…</div>
+    </div>
+</section>
+
+<div class="accent-line"></div>
+
+<footer>
+    <p>Jaisalmer & Jodhpur 🐫🏰 · Bangalore → Rajasthan · September 2026</p>
+    <p style="margin-top: 0.3rem;">Padharo Mhare Des — Welcome to Our Land</p>
+</footer>
+
+<script>
+// ============================================
+// DATA — All places, experiences, food
+// ============================================
+
+const jaisalmerPlaces = [
+    {
+        id: 'sonar-quila',
+        emoji: '🏰',
+        type: 'Heritage',
+        title: 'Jaisalmer Fort (Sonar Quila)',
+        desc: 'One of the world\'s largest living forts — a city within a city with shops, temples, and homes behind golden walls.',
+        time: '2–3 hours',
+        priority: 'must',
+        detail: {
+            overview: 'Sonar Quila — the Golden Fort — rises from the Thar desert like a sand castle come to life. Built in 1156 AD by Rawal Jaisal, it is one of the very few "living forts" in the world, with nearly 3,000 people still residing within its walls. Unlike most Indian forts that are museums, Jaisalmer Fort pulses with daily life — narrow lanes wind past Jain temples, havelis, shops selling embroidered textiles, and homes with intricately carved sandstone facades.',
+            highlights: [
+                'Raj Mahal (Royal Palace) — stunning mirror work, paintings, and a panoramic view from the top',
+                'Jain Temples inside the fort — 12th–15th century temples with extraordinary stone carvings',
+                'Merchant Havelis — Patwon, Salim Singh, and Nathmal ki Havelis are nearby',
+                'Fort walls & bastions — 99 bastions, many from the original construction',
+                'Cannon Point — panoramic views of the golden city below'
+            ],
+            tips: [
+                'Visit early morning (8–10 AM) to avoid heat and crowds',
+                'Wear comfortable shoes — the fort has steep, uneven paths',
+                'The fort glows golden at sunset — great for photography from outside',
+                'Entry fee: ₹100 for Indians (approx.), camera extra',
+                'Many small cafés inside the fort for chai and snacks'
+            ],
+            bestTime: 'Early morning or late afternoon',
+            duration: '2–3 hours for a thorough visit',
+            location: 'Jaisalmer city center — the fort is the city\'s centerpiece'
+        }
+    },
+    {
+        id: 'patwon-haveli',
+        emoji: '🏛️',
+        type: 'Architecture',
+        title: 'Patwon Ki Haveli',
+        desc: 'The largest and most elaborate haveli in Jaisalmer — five grand mansions with intricate golden-sandstone carvings.',
+        time: '1–1.5 hours',
+        priority: 'must',
+        detail: {
+            overview: 'Patwon Ki Haveli is a cluster of five grand havelis built between 1805 and 1862 by Guman Chand Patwa, a wealthy Jain merchant who traded in brocade and opium. It is the largest and most ornate haveli in Jaisalmer, and arguably in all of Rajasthan. Every inch of the yellow sandstone facade is covered in carvings — latticed windows (jharokhas), floral motifs, figures, and geometric patterns that seem impossibly detailed for stone.',
+            highlights: [
+                'The first haveli is a government museum with original furniture and artefacts',
+                'Intricate mirror work, gold leaf painting, and miniature art inside',
+                'The facade — considered the finest example of sandstone carving in Rajasthan',
+                'Each of the five havelis was built for one of Patwa\'s five sons',
+                'The narrow lane approaching the haveli is atmospheric and photogenic'
+            ],
+            tips: [
+                'Visit in the morning when sunlight hits the facade directly',
+                'The government-run portion (1st haveli) is the most worth visiting',
+                'Some havelis are privately owned — you may need separate tickets',
+                'Entry: ~₹100 for the museum portion',
+                'Combine with Nathmal Ki Haveli and Salim Singh Ki Haveli for a haveli trail'
+            ],
+            bestTime: 'Morning (9–11 AM) for best light on the facade',
+            duration: '1–1.5 hours',
+            location: '~500m from the fort, walkable'
+        }
+    },
+    {
+        id: 'sam-dunes',
+        emoji: '🏜️',
+        type: 'Desert',
+        title: 'Sam Sand Dunes',
+        desc: 'The iconic dunes of the Thar — camel rides, dune bashing, and spectacular sunsets. Right next to Le Royal Camps.',
+        time: 'Half day / Evening',
+        priority: 'must',
+        detail: {
+            overview: 'The Sam Sand Dunes are the most accessible and iconic sand dune formation in the Thar Desert, located about 42 km from Jaisalmer city. These rolling golden dunes stretch for kilometers and are the quintessential Rajasthan desert experience. Since Le Royal Camps is located right on Sam Road near Kanoi Village, the dunes are essentially at your doorstep. Sunset here is extraordinary — the sand turns from gold to amber to deep orange as the sun drops below the dune line.',
+            highlights: [
+                'Sunset over the dunes — the single most photographed moment in Jaisalmer',
+                'Camel rides across the dunes (complimentary at Le Royal Camps 4:30–6 PM)',
+                'Dune bashing in 4×4 jeeps (available at 30% off through the camp)',
+                'Evening folk performances at the camp after sunset',
+                'Stargazing — minimal light pollution means the Milky Way is visible'
+            ],
+            tips: [
+                'Your camp includes a free camel ride — use it between 4:30–6 PM',
+                'Jeep safari is at 30% off through Le Royal Camps — book at reception',
+                'Carry a scarf to cover your face during windy conditions',
+                'Keep phones/cameras in ziplock bags — sand gets everywhere',
+                'September may have occasional rain — the wet dunes have a unique beauty'
+            ],
+            bestTime: '4:30 PM onwards for golden hour & sunset',
+            duration: '2–4 hours (evening session)',
+            location: 'Sam, ~42 km from Jaisalmer city. Adjacent to Le Royal Camps.'
+        }
+    },
+    {
+        id: 'gadisar-lake',
+        emoji: '🌊',
+        type: 'Scenic',
+        title: 'Gadisar Lake',
+        desc: 'A serene man-made lake surrounded by temples and ghats. Beautiful at sunrise, with boating available.',
+        time: '1 hour',
+        priority: 'rec',
+        detail: {
+            overview: 'Gadisar Lake was built in 1367 AD by Maharawal Gadsi Singh as a rainwater harvesting reservoir and was the sole water source for the city for centuries. Today it\'s a peaceful oasis surrounded by temples, ghats, and chattris. The ornate arched gateway (Tilon Ki Pol) at the entrance was built by a royal courtesan — the king wanted it demolished but couldn\'t because she cleverly placed a Krishna temple on top.',
+            highlights: [
+                'Boating on the lake — pedal boats and shikaras available',
+                'Tilon Ki Pol — the ornate entrance gateway with the Krishna temple',
+                'Surrounding temples and ghats with reflected views',
+                'Bird watching — migratory birds visit in the monsoon season',
+                'Sunrise views are particularly beautiful'
+            ],
+            tips: [
+                'Best visited early morning or at sunset',
+                'Boating costs ~₹50–100 per person',
+                'Combine with a visit to the Folklore Museum nearby',
+                'September may see higher water levels due to monsoon',
+                'A peaceful 30-minute stop works well between fort and havelis'
+            ],
+            bestTime: 'Early morning or sunset',
+            duration: '45 min – 1 hour',
+            location: 'South edge of Jaisalmer city, ~1 km from the fort'
+        }
+    },
+    {
+        id: 'kuldhara',
+        emoji: '👻',
+        type: 'Historical',
+        title: 'Kuldhara Abandoned Village',
+        desc: 'A mysteriously abandoned village where 84 villages emptied overnight in the 1800s. Eerie ruins in the desert.',
+        time: '1–1.5 hours',
+        priority: 'rec',
+        detail: {
+            overview: 'Kuldhara is an abandoned village about 18 km from Jaisalmer that was once home to prosperous Paliwal Brahmins. According to legend, in 1825 the entire population of 84 surrounding villages vanished overnight to escape the tyrannical demands of the minister Salim Singh, who wanted to forcibly marry the village chief\'s daughter. They reportedly cursed the land so no one could ever settle there again. The ruins remain eerily intact — roofless houses, streets, a temple — all slowly being reclaimed by the desert.',
+            highlights: [
+                'Walk through the ghostly main street lined with crumbling houses',
+                'The remarkably preserved temple at the village center',
+                'Information boards tell the legend and history',
+                'The engineering — Paliwals were known for their water harvesting skills',
+                'Atmospheric photography opportunities, especially in golden hour'
+            ],
+            tips: [
+                'Visit late afternoon — the light is dramatic and it\'s less hot',
+                'Don\'t visit after dark — it\'s officially closed and genuinely creepy',
+                'Entry fee: ~₹25',
+                'Can be combined with Sam Dunes as it\'s on the way',
+                'The village is a declared heritage site maintained by ASI',
+                'Deepak may not enjoy this one 😄'
+            ],
+            bestTime: 'Late afternoon (4–5:30 PM)',
+            duration: '1–1.5 hours',
+            location: '~18 km from Jaisalmer, on the road to Sam Sand Dunes'
+        }
+    },
+    {
+        id: 'bada-bagh',
+        emoji: '🪦',
+        type: 'Monument',
+        title: 'Bada Bagh',
+        desc: 'Royal cenotaphs of Jaisalmer\'s rulers in golden sandstone. Magnificent at sunset.',
+        time: '45 min',
+        priority: 'rec',
+        detail: {
+            overview: 'Bada Bagh (meaning "Big Garden") is a complex of royal cenotaphs (chattris) built over centuries for the rulers and nobles of Jaisalmer. Set on a hillside about 6 km north of the city, the carved sandstone memorials with their equestrian statues stand dramatically against the open desert sky. The oldest dates to the 16th century. The site was originally a garden commissioned by Maharawal Jait Singh after he built a dam nearby.',
+            highlights: [
+                'Rows of ornate chattris with carved pillars and equestrian statues',
+                'Each cenotaph marks a Jaisalmer ruler — a timeline in stone',
+                'Sweeping desert views from the hillside',
+                'Iconic sunset photography spot',
+                'Wind turbines in the background create a striking ancient-meets-modern contrast'
+            ],
+            tips: [
+                'Best at sunset — the sandstone glows gold-orange',
+                'Entry: ~₹100',
+                'It\'s on the way to/from the airport — good as a first or last stop',
+                'Visit takes only 30–45 minutes',
+                '6 km from city center, easily accessible by TT'
+            ],
+            bestTime: 'Sunset (golden hour)',
+            duration: '30–45 minutes',
+            location: '6 km north of Jaisalmer city'
+        }
+    },
+    {
+        id: 'tanot',
+        emoji: '🛕',
+        type: 'Border',
+        title: 'Tanot Mata Temple',
+        desc: 'A revered temple on the Indo-Pak border managed by BSF. Unexploded bombs from 1971 are displayed outside.',
+        time: 'Half-day (120 km)',
+        priority: 'opt',
+        detail: {
+            overview: 'Tanot Mata Temple sits in the stark Thar desert just 20 km from the Indo-Pakistan border. During the 1965 and 1971 wars, Pakistani bombs fell around the temple but none exploded — a miracle attributed to the goddess. The BSF (Border Security Force) now maintains the temple, and the unexploded bombs and shells are displayed in a small museum outside. The drive itself through the desolate, flat desert landscape is an experience.',
+            highlights: [
+                'Unexploded Pakistani bombs displayed in the museum',
+                'The temple itself — simple but powerful in its desert setting',
+                'BSF personnel share stories of the 1965 and 1971 wars',
+                'The drive through absolute desert — no habitation for kilometers',
+                'India Gate replica and war memorial at the site'
+            ],
+            tips: [
+                'It\'s 120 km from Jaisalmer — a half-day commitment (3+ hours each way)',
+                'Indian nationals only — carry ID proof',
+                'No fuel stations for long stretches — ensure the TT has a full tank',
+                'Very limited food/water options — carry supplies',
+                'Only feasible if you have a spare half-day — could skip for Day 12 relaxation'
+            ],
+            bestTime: 'Morning (to avoid afternoon desert heat)',
+            duration: 'Half day including drive',
+            location: '~120 km from Jaisalmer, near India-Pakistan border'
+        }
+    },
+    {
+        id: 'nathmal-haveli',
+        emoji: '🏘️',
+        type: 'Architecture',
+        title: 'Nathmal Ki Haveli',
+        desc: 'Built by two brothers who each carved one half — charmingly asymmetric with sandstone elephants flanking the entrance.',
+        time: '30 min',
+        priority: 'opt',
+        detail: {
+            overview: 'Nathmal Ki Haveli was built in the late 19th century as the residence of Diwan Mohata Nathmal, the Prime Minister of Jaisalmer. What makes it unique is that two Muslim brothers — Hathi and Lulu — were commissioned to carve one half each, working simultaneously. The result is a facade that appears symmetrical from a distance but reveals delightful differences up close — different flowers, different patterns, slightly different proportions. Two large sandstone elephants guard the entrance.',
+            highlights: [
+                'Spot-the-difference between the two halves of the facade',
+                'The two massive sandstone elephants at the entrance',
+                'Miniature paintings and carved furniture inside (partially open)',
+                'Still a private residence — a living piece of history',
+                'The craftsmanship rivals Patwon Ki Haveli'
+            ],
+            tips: [
+                'Quick 20–30 minute stop — combine with other havelis',
+                'Some portions are open to visitors, others are private',
+                'Tip expected for the caretaker who shows you around',
+                'Best photographed in morning light',
+                'Walking distance from the fort and Patwon Ki Haveli'
+            ],
+            bestTime: 'Morning',
+            duration: '20–30 minutes',
+            location: 'In the old city, walkable from the fort'
+        }
+    }
+];
+
+const jodhpurPlaces = [
+    {
+        id: 'mehrangarh',
+        emoji: '🏰',
+        type: 'Heritage',
+        title: 'Mehrangarh Fort',
+        desc: 'One of India\'s most magnificent forts, rising 400 feet above the blue city. Museum, latticed windows, and panoramic views.',
+        time: '3–4 hours',
+        priority: 'must',
+        detail: {
+            overview: 'Mehrangarh — literally "Fort of the Sun" — is one of the largest and most impressive forts in India. Rising 400 feet above Jodhpur on a perpendicular cliff, it was built in 1459 by Rao Jodha. The fort houses one of the most well-curated museums in Rajasthan with royal palanquins, costumes, arms, paintings, and decorated rooms. The intricately carved windows and panels are staggering. From the ramparts, the blue-painted houses of old Jodhpur spread out below like an ocean.',
+            highlights: [
+                'Museum galleries — royal palanquins, armory, paintings, costumes, turban gallery',
+                'Sheesh Mahal (Mirror Palace) and Phool Mahal (Flower Palace)',
+                'The panoramic view of the blue city from the ramparts',
+                'Intricately carved jharokha windows — among the finest in India',
+                'Sati handprints at Loha Pol (Iron Gate) — haunting history',
+                'Audio guide narrated by a member of the royal family',
+                'Mehran Terrace restaurant — dinner with fort views on the 15th!'
+            ],
+            tips: [
+                'Visit first thing in the morning (opens at 9 AM) — 3–4 hours easily',
+                'Get the audio guide — it\'s excellent and included in the ticket',
+                'Entry: ~₹200 for Indians + ₹100 for camera',
+                'Wear comfortable shoes — lots of walking and steep paths',
+                'The elevator can help if you want to skip the uphill walk',
+                'Mehran Terrace for dinner on Sept 15th is being planned — book ahead!',
+                'Flying Fox zip-line also operates from the fort'
+            ],
+            bestTime: 'Morning (9 AM – 12 PM)',
+            duration: '3–4 hours minimum',
+            location: 'Old city Jodhpur — visible from everywhere'
+        }
+    },
+    {
+        id: 'jaswant-thada',
+        emoji: '⚪',
+        type: 'Monument',
+        title: 'Jaswant Thada',
+        desc: 'An ethereal white marble cenotaph near Mehrangarh. Thin marble sheets glow in sunlight. Peaceful gardens.',
+        time: '45 min',
+        priority: 'must',
+        detail: {
+            overview: 'Jaswant Thada is a white marble cenotaph built in 1899 in memory of Maharaja Jaswant Singh II. Often called the "Taj Mahal of Marwar," it\'s constructed from intricately carved sheets of marble so thin that they emit a warm glow when sunlight passes through. Set in peaceful terraced gardens with a small lake, it offers spectacular views of Mehrangarh Fort towering above.',
+            highlights: [
+                'The translucent marble sheets that glow in sunlight',
+                'Intricate carved marble lattice work (jali)',
+                'Peaceful gardens and a small lake with reflections',
+                'Views of Mehrangarh Fort from the gardens',
+                'Royal portraits inside the main cenotaph'
+            ],
+            tips: [
+                'Visit right after or before Mehrangarh — it\'s a 5-minute walk downhill',
+                'Entry: ~₹30 for Indians',
+                'Best light in the morning',
+                'The gardens are perfect for a quiet 20-minute rest after the fort',
+                'Great photography spot with the fort in the background'
+            ],
+            bestTime: 'Morning',
+            duration: '30–45 minutes',
+            location: 'Just below Mehrangarh Fort — walkable'
+        }
+    },
+    {
+        id: 'umaid-bhawan',
+        emoji: '👑',
+        type: 'Palace',
+        title: 'Umaid Bhawan Palace',
+        desc: 'One of the world\'s largest private residences — part royal home, part Taj hotel, part museum. Art Deco grandeur.',
+        time: '1.5 hours',
+        priority: 'must',
+        detail: {
+            overview: 'Umaid Bhawan Palace is one of the world\'s largest private residences, with 347 rooms. Built between 1929 and 1943 using local sandstone and marble, it was the last of the great palaces built in India. Today it\'s divided into three parts: the royal residence (the current Maharaja still lives here), a Taj Palace hotel, and a museum open to the public. The Art Deco interiors — designed by Stefan Norblin — are remarkable.',
+            highlights: [
+                'The museum section with vintage cars, clocks, and art deco furnishings',
+                'Stunning Art Deco interior design — a rarity in Indian palaces',
+                'The dome — one of the largest in the world, inspired by the Pantheon',
+                'Manicured gardens and fountains',
+                'Spot peacocks roaming the grounds'
+            ],
+            tips: [
+                'Only the museum section is open to public — entry ~₹100',
+                'The Taj hotel section is accessible if you dine there (expensive but stunning)',
+                'No photography inside the museum',
+                'Visit in the afternoon — it pairs well after a morning at Mehrangarh',
+                'About 5 km from old city — take the TT'
+            ],
+            bestTime: 'Afternoon',
+            duration: '1–1.5 hours',
+            location: 'Chittar Hill, about 5 km from old city'
+        }
+    },
+    {
+        id: 'blue-city-walk',
+        emoji: '🔵',
+        type: 'Experience',
+        title: 'Blue City Heritage Walk',
+        desc: 'Wander the indigo-painted lanes beneath Mehrangarh. Chai stops, rooftop views, and the most photogenic corners.',
+        time: '2–3 hours',
+        priority: 'must',
+        detail: {
+            overview: 'The blue-painted houses of old Jodhpur are the city\'s most iconic sight. Originally, the blue color was used by Brahmins to distinguish their homes, but it gradually spread as people discovered it kept houses cool and repelled insects (the color comes from mixing limestone with copper sulphate). The best way to experience it is on foot, wandering the narrow, winding lanes where every corner reveals another shade of blue.',
+            highlights: [
+                'Narrow blue lanes that seem to go on forever',
+                'Rooftop views of the blue sea of houses with the fort above',
+                'Local life — women in colorful saris, kids playing, chai stalls',
+                'Photography paradise — every lane is a frame',
+                'Stepwells and small temples hidden in the lanes'
+            ],
+            tips: [
+                'Start from the fort and walk down through the old city',
+                'Or start from Clock Tower and walk up towards the fort',
+                'Morning light (8–10 AM) is best for photography',
+                'Several rooftop cafés along the way for chai breaks',
+                'Guided walks available through hotels or local guides (~₹500–1000)',
+                'The area around Gulab Sagar and Nai Sarak has the densest blue'
+            ],
+            bestTime: 'Early morning for light; evening for atmosphere',
+            duration: '2–3 hours at a relaxed pace',
+            location: 'Old city, between Mehrangarh Fort and Clock Tower'
+        }
+    },
+    {
+        id: 'clock-tower',
+        emoji: '🕰️',
+        type: 'Market',
+        title: 'Clock Tower & Sardar Market',
+        desc: 'The vibrant heart of old Jodhpur. Spices, textiles, handicrafts — and the best lassi in Rajasthan at Mishrilal.',
+        time: '1.5–2 hours',
+        priority: 'rec',
+        detail: {
+            overview: 'Ghanta Ghar (Clock Tower) is the pulsing heart of old Jodhpur, surrounded by the sprawling Sardar Market. The market is a sensory overload — mountains of colorful spices, stacks of bangles, textiles, leather mojaris, silverware, and handicrafts spill out of narrow lanes in every direction. This is where locals shop, and the energy is intoxicating.',
+            highlights: [
+                'Shri Mishrilal Hotel — the legendary makhaniya (saffron) lassi shop',
+                'Spice markets — turmeric, chili, cumin piled in colorful mountains',
+                'Bandhani (tie-dye) textiles and block-printed fabrics',
+                'Leather mojari (shoe) shops — handmade traditional footwear',
+                'Lac bangles — made while you watch',
+                'Evening atmosphere when the market comes alive with lights'
+            ],
+            tips: [
+                'Mishrilal Lassi is NON-NEGOTIABLE — get the makhaniya lassi',
+                'Bargain hard — start at 40% of the asking price',
+                'Evening visits (5–8 PM) have the best atmosphere',
+                'Carry cash — most stalls don\'t accept cards',
+                'Watch out for your belongings in crowded lanes',
+                'Great for picking up souvenirs — spice boxes, textiles, mojaris'
+            ],
+            bestTime: 'Evening (5–8 PM)',
+            duration: '1.5–2 hours',
+            location: 'City center, old Jodhpur'
+        }
+    },
+    {
+        id: 'toorji-stepwell',
+        emoji: '🪜',
+        type: 'Heritage',
+        title: 'Toorji Ka Jhalra',
+        desc: 'A beautifully restored stepwell in the old city. Geometric steps cascade down — a perfect photography spot.',
+        time: '30 min',
+        priority: 'rec',
+        detail: {
+            overview: 'Toorji Ka Jhalra is a historic stepwell in the heart of old Jodhpur, built around 1740 by the queen consort of Maharaja Abhay Singh. After falling into disrepair for decades, it was beautifully restored in 2009. The geometric pattern of steps cascading down to the water level is mesmerizing. Several cafés and guesthouses now overlook the stepwell, making it a lovely spot to sit with a coffee.',
+            highlights: [
+                'The geometric symmetry of the carved steps',
+                'Cafés overlooking the stepwell — Stepwell Café is popular',
+                'Beautiful interplay of light and shadow, especially in morning',
+                'A working stepwell — water is still present',
+                'Located in the atmospheric old city'
+            ],
+            tips: [
+                'Visit in the morning for the best light',
+                'Combine with Clock Tower visit — it\'s a 5-minute walk',
+                'The Stepwell Café above is great for coffee with a view',
+                'Free to visit — it\'s an open public space',
+                'Quick 20–30 minute stop works well'
+            ],
+            bestTime: 'Morning',
+            duration: '20–30 minutes',
+            location: 'Old city, near Sardar Market — walkable from Clock Tower'
+        }
+    },
+    {
+        id: 'rao-jodha-park',
+        emoji: '🌿',
+        type: 'Nature',
+        title: 'Rao Jodha Desert Rock Park',
+        desc: 'An ecological restoration at the base of Mehrangarh. Rocky desert trails with dramatic fort views above.',
+        time: '1.5 hours',
+        priority: 'rec',
+        detail: {
+            overview: 'Rao Jodha Desert Rock Park is a 72-hectare ecological restoration project at the base of Mehrangarh Fort. What was once a wasteland of invasive plants has been painstakingly restored with native desert vegetation — 200+ species of plants that thrive in the harsh rocky terrain. Walking trails wind through the rugged landscape with the fort towering dramatically above.',
+            highlights: [
+                'Rocky trails through native desert vegetation',
+                'Dramatic views of Mehrangarh from below',
+                'Native plants labeled for identification — educational and beautiful',
+                'The contrast of green desert life against red-brown rock',
+                'Relatively unknown — few tourists, peaceful'
+            ],
+            tips: [
+                'Visit in the morning or late afternoon — no shade on the trails',
+                'Entry: ~₹100',
+                'Combine with Mehrangarh visit — the park entrance is at the fort base',
+                'Guided nature walks available',
+                'Carry water — no stalls inside the park',
+                'Good for kids — open space to run around'
+            ],
+            bestTime: 'Morning or late afternoon',
+            duration: '1–1.5 hours',
+            location: 'Base of Mehrangarh Fort'
+        }
+    },
+    {
+        id: 'mandore',
+        emoji: '🌳',
+        type: 'Historical',
+        title: 'Mandore Gardens',
+        desc: 'Ancient capital of Marwar with royal cenotaphs, rock terraces, and the Hall of Heroes. Peaceful & off-beat.',
+        time: '1.5 hours',
+        priority: 'opt',
+        detail: {
+            overview: 'Mandore was the capital of the Marwar region before Jodhpur was founded. The Mandore Gardens house royal cenotaphs (dewals) built in the style of Hindu temples rather than the typical Islamic-influenced Rajasthani chattris. The Hall of Heroes features 16 figures carved from a single rock face depicting Rajput and folk heroes. It\'s peaceful, leafy, and away from the main tourist circuit.',
+            highlights: [
+                'Temple-style cenotaphs — unique in Rajasthan',
+                'Hall of Heroes — 16 painted figures carved from rock',
+                'Government Museum with sculptures and artifacts',
+                'Shaded gardens — a cool respite from the heat',
+                'Langur monkeys everywhere — entertaining and photogenic'
+            ],
+            tips: [
+                'About 9 km from city center — take the TT',
+                'Free entry to the gardens; small fee for the museum',
+                'Watch out for the monkeys — don\'t carry open food',
+                'Less crowded than main tourist spots',
+                'Can be a relaxed morning outing if you have time on Day 5'
+            ],
+            bestTime: 'Morning',
+            duration: '1–1.5 hours',
+            location: '9 km north of Jodhpur city center'
+        }
+    },
+    {
+        id: 'zipline',
+        emoji: '🦅',
+        type: 'Adventure',
+        title: 'Flying Fox Zip-lining',
+        desc: 'Six zip-lines across Mehrangarh\'s battlements. 400m of aerial views over the blue city.',
+        time: '1.5 hours',
+        priority: 'opt',
+        detail: {
+            overview: 'Flying Fox Jodhpur operates a zip-line course from the walls and battlements of Mehrangarh Fort. Six zip-lines covering over 400 meters take you soaring over lakes, cliffs, and the desert landscape surrounding the fort. It\'s professionally operated, safe, and offers a completely unique perspective of Mehrangarh that you can\'t get any other way.',
+            highlights: [
+                'Six zip-lines of varying lengths and heights',
+                'Bird\'s-eye views of Mehrangarh Fort and the blue city',
+                'Soar over the moat, lakes, and cliff faces',
+                'Professionally managed with international safety standards',
+                'A totally different way to experience the fort'
+            ],
+            tips: [
+                'Book in advance — slots fill up, especially mornings',
+                'Cost: ~₹1,800–2,500 per person',
+                'Minimum age restrictions apply — check for the kids',
+                'Wear closed-toe shoes and comfortable clothes',
+                'Morning slots are cooler and have better light for photos',
+                'Takes about 1.5 hours including safety briefing'
+            ],
+            bestTime: 'Morning',
+            duration: '1.5 hours',
+            location: 'Mehrangarh Fort complex'
+        }
+    }
+];
+
+const experiences = [
+    {
+        id: 'camel-safari',
+        emoji: '🐪',
+        title: 'Desert Camel Safari',
+        desc: 'Ride through the Thar on camelback. Complimentary at Le Royal Camps (4:30–6 PM) — or book a longer sunset safari.',
+        tag: 'Included at camp',
+        tagClass: 'tag-green',
+        detail: {
+            overview: 'A camel safari is the definitive Thar Desert experience. Le Royal Camps includes a complimentary camel ride between 4:30–6 PM, which takes you through the desert around Sam Sand Dunes. For a longer experience, you can book an extended safari that goes deeper into the dunes for sunset.',
+            highlights: ['Complimentary ride at camp (4:30–6 PM)', 'Extended sunset safaris available', 'Cross the rolling Sam dunes on camelback', 'Photo opportunities with the desert landscape'],
+            tips: ['The camp ride is short (~30 min) but atmospheric', 'Wear long pants to avoid chafing', 'Carry a scarf for wind/sand', 'September heat can be intense — carry water', 'Camels can be bumpy — not ideal for very small kids on longer rides'],
+            location: 'Sam Sand Dunes, at/near Le Royal Camps'
+        }
+    },
+    {
+        id: 'dune-bashing',
+        emoji: '🏜️',
+        title: 'Jeep Safari / Dune Bashing',
+        desc: 'Thrilling 4×4 ride over the desert dunes near Jaisalmer. Available at 30% off through Le Royal Camps.',
+        tag: '30% off at camp',
+        tagClass: 'tag-gold',
+        detail: {
+            overview: 'A desert jeep safari takes you bouncing and sliding over the Sam Sand Dunes in a 4×4. It\'s an adrenaline rush paired with incredible desert scenery. Le Royal Camps offers this at a 30% discount — just book at reception.',
+            highlights: ['High-energy dune bashing over rolling sand', 'Reach dune crests for panoramic views', 'Better for those who find camels uncomfortable', 'Can combine with sunset stop on the dunes'],
+            tips: ['Book through Le Royal Camps for 30% off', 'Hold on tight — it gets bumpy!', 'Not recommended for very young kids or those with back issues', 'Best done before sunset', 'Usually 30–45 min ride'],
+            location: 'Sam Sand Dunes'
+        }
+    },
+    {
+        id: 'folk-night',
+        emoji: '🎶',
+        title: 'Rajasthani Folk Night',
+        desc: 'Live music, Kalbelia dance, cultural programme, and DJ — included at Le Royal Camps (7–10 PM).',
+        tag: 'Included at camp',
+        tagClass: 'tag-green',
+        detail: {
+            overview: 'Le Royal Camps includes complimentary evening entertainment: live Rajasthani folk music, cultural performances, dance shows (including the famous Kalbelia snake dance), an aarti ceremony, and even a DJ party. Activities run from 7:00 PM to 10:00 PM in the camp courtyard, followed by a bonfire.',
+            highlights: ['Live Manganiyar/Langa folk musicians', 'Kalbelia dance performances', 'Aarti ceremony', 'Bonfire under the stars', 'DJ party (if you\'re in the mood)'],
+            tips: ['Included with your stay — no extra cost', 'Runs 7–10 PM at the camp courtyard', 'Dinner is served 8–10 PM alongside', 'Tip the performers — they\'re incredible artists', 'Great with a bonfire and star-filled sky'],
+            location: 'Le Royal Camps courtyard'
+        }
+    },
+    {
+        id: 'stargazing',
+        emoji: '🌟',
+        title: 'Stargazing in the Thar',
+        desc: 'Minimal light pollution in the desert means the Milky Way is visible. Step outside the camp and look up.',
+        tag: 'Free',
+        tagClass: 'tag-green',
+        detail: {
+            overview: 'The Sam Sand Dunes area has minimal light pollution, making it one of the best places in India for casual stargazing. On a clear September night, the Milky Way is visible to the naked eye. Simply step away from the camp lights after dinner, lie back on the dunes, and look up.',
+            highlights: ['Milky Way visible on clear nights', 'September skies can be dramatic with monsoon cloud breaks', 'No equipment needed — naked-eye stargazing is incredible here', 'Perfect after the folk performance and bonfire'],
+            tips: ['Step 100m from camp lights for the best view', 'Carry a phone app like Sky Map to identify constellations', 'Monsoon clouds may partially obscure — but cloud breaks are dramatic', 'Best after 10 PM when camp lights dim', 'Carry a light jacket — desert nights can be cooler'],
+            location: 'Sam Sand Dunes — outside Le Royal Camps'
+        }
+    },
+    {
+        id: 'mehran-terrace',
+        emoji: '🍽️',
+        title: 'Dinner at Mehran Terrace',
+        desc: 'Dine on the terrace at Mehrangarh Fort with views over the blue city. Planned for September 15th.',
+        tag: 'Planned · Sept 15',
+        tagClass: 'tag-gold',
+        detail: {
+            overview: 'Mehran Terrace is a dining experience on the terrace of Mehrangarh Fort, offering panoramic views of the blue city of Jodhpur below. It\'s been suggested for dinner on September 15th (the last full evening). The atmosphere at night — with the fort lit up and the city twinkling below — is unforgettable.',
+            highlights: ['Fort terrace setting with blue city views', 'Rajasthani and Indian cuisine', 'The fort is lit up at night — dramatic backdrop', 'A fitting finale dinner for the last evening', 'Unique dining location you won\'t find elsewhere'],
+            tips: ['Book in advance — it\'s popular and may have limited seating', 'Check if it requires separate fort entry ticket', 'Dress a bit nicer — it\'s a special setting', 'Sunset + dinner combo if timing works', 'Confirm availability for Sept 15th closer to the date'],
+            location: 'Mehrangarh Fort, Jodhpur'
+        }
+    },
+    {
+        id: 'cooking-class',
+        emoji: '🍛',
+        title: 'Rajasthani Cooking Class',
+        desc: 'Learn to make Dal Baati Churma, Laal Maas, or Ker Sangri with local families.',
+        tag: 'Culture',
+        tagClass: 'tag-sand',
+        detail: {
+            overview: 'Several guesthouses and homes in Jodhpur offer cooking classes where you learn to make traditional Rajasthani dishes — Dal Baati Churma, Gatte Ki Sabzi, Ker Sangri, and sometimes even Laal Maas. It\'s hands-on, usually in a home kitchen, and you eat what you cook.',
+            highlights: ['Hands-on cooking in a local kitchen', 'Learn 3–4 traditional dishes', 'Eat your creations for lunch/dinner', 'Market visit to buy ingredients sometimes included', 'A skill you take home with you'],
+            tips: ['Usually 2–3 hours', 'Cost: ~₹1,500–3,000 per person', 'Book through your hotel or search on Airbnb Experiences', 'Morning sessions are more common', 'Kid-friendly — they can help with simple steps'],
+            location: 'Old city Jodhpur — various providers'
+        }
+    },
+    {
+        id: 'textile-shopping',
+        emoji: '🧵',
+        title: 'Textile & Handicraft Shopping',
+        desc: 'Bandhani, block prints, leather mojaris, lac bangles, miniature paintings. Sardar Market & Fort Market.',
+        tag: 'Shopping',
+        tagClass: 'tag-sand',
+        detail: {
+            overview: 'Rajasthan is a shopper\'s paradise, and both Jaisalmer and Jodhpur offer unique handicrafts. Jaisalmer\'s fort market is good for textiles and leather. Jodhpur\'s Sardar Market near Clock Tower is the main bazaar — a maze of spice lanes, textile shops, bangle stalls, and mojari (leather shoe) makers.',
+            highlights: ['Bandhani (tie-dye) and block-printed fabrics', 'Handmade leather mojaris (traditional shoes)', 'Lac bangles — made and fitted while you watch', 'Spice boxes and masala mixes', 'Miniature paintings on silk or paper', 'Silver jewellery'],
+            tips: ['Bargain hard — start at 40–50% of asking price', 'Sardar Market (Jodhpur) has the widest selection', 'Carry cash — most stalls are cash-only', 'Mojaris need breaking in — buy a size loose', 'Compare prices at a few stalls before buying', 'Good gifts: spice boxes, small paintings, bangles'],
+            location: 'Sardar Market (Jodhpur) · Fort Market (Jaisalmer)'
+        }
+    },
+    {
+        id: 'pokhran-stop',
+        emoji: '☢️',
+        title: 'Pokhran Fort & Lunch Stop',
+        desc: 'Break the road trip at historic Pokhran — India\'s nuclear test site. Khusbhoo Haveli Restaurant for lunch.',
+        tag: 'Enroute · Sept 13',
+        tagClass: 'tag-gold',
+        detail: {
+            overview: 'Pokhran is roughly the midpoint between Jaisalmer and Jodhpur on NH-15. It\'s known as the site of India\'s nuclear tests (Pokhran-I in 1974 and Pokhran-II in 1998). The town has a 14th-century fort worth a quick look. More importantly, it\'s the planned lunch stop — Khusbhoo Haveli Restaurant has been recommended.',
+            highlights: ['Lunch at Khusbhoo Haveli Restaurant (recommended from the group)', 'Pokhran Fort — a 14th-century Rajput fort, quick walkthrough', 'Historical significance — India\'s nuclear test site', 'Breaks the 5-hour drive nicely', 'Madudhara restaurant is another option nearby'],
+            tips: ['Plan for a 45-min to 1-hour stop', 'Khusbhoo Haveli and Madudhara are the two recommended restaurants', 'The fort is small — 20 minutes is enough if you want to peek in', 'Good chai available at roadside stalls', 'About midway in the drive — ~150 km from each city'],
+            location: 'Pokhran, NH-15 — midway between Jaisalmer & Jodhpur'
+        }
+    },
+    {
+        id: 'pool-day',
+        emoji: '🏊',
+        title: 'Pool & Relaxation at The Ummed',
+        desc: 'The Ummed has a great pool. Take a half-day off from sightseeing — pool, spa, and slow living.',
+        tag: 'At hotel',
+        tagClass: 'tag-blue',
+        detail: {
+            overview: 'The Ummed Jodhpur Palace Resort & Spa has a well-maintained swimming pool and spa facilities. With three nights in Jodhpur, you can afford to take half a day off from sightseeing — especially in September heat. The kids will love the pool, and the 15% F&B discount and Happy Hours 1+1 offer make it even better.',
+            highlights: ['Swimming pool at The Ummed', 'Spa treatments available', '15% discount on food & beverage at the hotel', 'Happy Hours 1+1 offer', 'A necessary break from Rajasthan\'s heat'],
+            tips: ['Afternoon (2–5 PM) is the hottest — perfect pool time', 'The pool was a key reason for choosing Ummed over desert camp pools', 'Carry swim gear from Bangalore', 'Happy Hour drinks are billed (not free) — but 1+1 is a good deal', 'Let the kids burn energy at the pool while adults relax'],
+            location: 'The Ummed Jodhpur Palace Resort & Spa'
+        }
+    }
+];
+
+const foodItems = [
+    {
+        id: 'dal-baati',
+        emoji: '🫓',
+        title: 'Dal Baati Churma',
+        desc: 'Hard wheat balls drenched in ghee, with spiced dal and sweet churma.',
+        detail: {
+            overview: 'The undisputed king of Rajasthani cuisine. Baati are hard, round wheat rolls baked in a traditional clay oven, then dunked generously in desi ghee. Served with panchmel dal (five-lentil mix) and churma (crushed baati sweetened with jaggery and ghee). It\'s hearty, rich, and the single most iconic dish of Rajasthan.',
+            where: 'Available at almost every Rajasthani restaurant. The camp dinner will likely include it. In Jodhpur, try it at any traditional thali restaurant near Clock Tower.',
+            tip: 'Eat it the local way — break the baati, soak it in ghee, mix with dal. Don\'t be shy with the ghee!'
+        }
+    },
+    {
+        id: 'laal-maas',
+        emoji: '🍖',
+        title: 'Laal Maas',
+        desc: 'Fiery red mutton curry with Mathania chillies. A Jodhpur speciality.',
+        detail: {
+            overview: 'Laal Maas (Red Meat) is Rajasthan\'s most famous non-vegetarian dish. Mutton is slow-cooked in a gravy made with dried Mathania red chillies (from a village near Jodhpur), yoghurt, and garlic. The result is intensely red, smoky, and fiery hot. It\'s a royal dish with deep roots in Rajput warrior cuisine.',
+            where: 'Best had in Jodhpur. Try at Mehran Terrace (if available for the Sept 15 dinner), or ask at The Ummed (15% F&B discount applies).',
+            tip: 'If you can\'t handle extreme heat, ask for a milder version. Also try Safed Maas (white/mild version) as a contrast.'
+        }
+    },
+    {
+        id: 'lassi',
+        emoji: '🥛',
+        title: 'Makhaniya Lassi',
+        desc: 'Thick saffron lassi with malai. Mishrilal Hotel near Clock Tower is legendary.',
+        detail: {
+            overview: 'Makhaniya Lassi is Jodhpur\'s gift to the world — a thick, creamy, saffron-laced yoghurt drink topped with a generous layer of malai (clotted cream). The texture is closer to a shake than a drink. Shri Mishrilal Hotel near Clock Tower has been serving it since 1927.',
+            where: 'Shri Mishrilal Hotel, near Clock Tower, Jodhpur. This is non-negotiable — everyone in the group must try it.',
+            tip: 'Go for the full-fat version. Diet concerns can wait. One glass per person is usually enough — it\'s very filling.'
+        }
+    },
+    {
+        id: 'mirchi-bada',
+        emoji: '🌶️',
+        title: 'Mirchi Bada',
+        desc: 'Large chillies stuffed with potato, battered, fried. Classic Jodhpur street snack.',
+        detail: {
+            overview: 'Mirchi Bada is Jodhpur\'s most beloved street snack. Large, mild chillies (not the fiery small ones) are stuffed with a spiced potato filling, dipped in gram flour batter, and deep fried until golden. Crispy outside, soft and flavourful inside. Best paired with tangy chutney.',
+            where: 'Street stalls around Clock Tower and Sardar Market. Shahi Samosa near Jalori Gate is also famous for it.',
+            tip: 'Don\'t worry about the chilli — the large variety used is mild. It\'s the potato-spice filling that stars.'
+        }
+    },
+    {
+        id: 'ker-sangri',
+        emoji: '🫘',
+        title: 'Ker Sangri',
+        desc: 'Desert beans and berries. Unique to the Thar — tangy, earthy, unfindable elsewhere.',
+        detail: {
+            overview: 'Ker Sangri is a dish made from two desert plants — Ker (a wild berry) and Sangri (a long bean from the Khejri tree). Dried and then cooked with spices, mustard oil, and red chillies, it has a unique tangy, earthy flavor that\'s impossible to find outside Rajasthan\'s desert belt.',
+            where: 'Ask for it at any Rajasthani restaurant or thali place. The camp dinner may include it. It\'s a side dish, usually part of a thali.',
+            tip: 'It\'s an acquired taste — tangy and slightly bitter. Try it once, and you might become obsessed.'
+        }
+    },
+    {
+        id: 'mawa-kachori',
+        emoji: '🍮',
+        title: 'Mawa Kachori',
+        desc: 'Sweet kachori stuffed with mawa and dry fruits, drizzled with sugar syrup.',
+        detail: {
+            overview: 'Mawa Kachori is Jodhpur\'s iconic sweet snack — a flaky, deep-fried kachori stuffed with mawa (dried milk solids), nuts, and cardamom, then generously soaked in sugar syrup. It\'s sinfully rich and absolutely delicious. Every sweet shop in Jodhpur makes them.',
+            where: 'Janta Sweet Home and Rawat Mishtan Bhandar are famous for it. Available at most sweet shops near Clock Tower.',
+            tip: 'Have it fresh and warm. One per person is plenty — they\'re very rich.'
+        }
+    },
+    {
+        id: 'safed-maas',
+        emoji: '🍗',
+        title: 'Safed Maas',
+        desc: 'Mild white mutton curry from royal kitchens. Cashew, yoghurt, and aromatic spices.',
+        detail: {
+            overview: 'Safed Maas (White Meat) is the gentler sibling of Laal Maas. Mutton cooked in a white gravy of cashew paste, cream, yoghurt, and mild aromatic spices. It was served in royal Rajput courts and is luxuriously creamy without the heat.',
+            where: 'Higher-end restaurants in Jodhpur. The Ummed restaurant may serve it. Also available at Mehran Terrace.',
+            tip: 'Order both Laal Maas and Safed Maas to compare — fire vs. silk. Both pair beautifully with hot rotis.'
+        }
+    },
+    {
+        id: 'doodh-jalebi',
+        emoji: '🧊',
+        title: 'Doodh Jalebi',
+        desc: 'Warm crispy jalebis dunked in cold sweetened milk. Rajasthani comfort food.',
+        detail: {
+            overview: 'Doodh Jalebi is comfort food at its finest — hot, freshly fried crispy jalebis dunked in a bowl of cold, sweetened, cardamom-flavored milk. The contrast of warm-crispy and cold-creamy is addictive. It\'s a breakfast item and an evening snack in Rajasthan.',
+            where: 'Sweet shops and street stalls, especially near Clock Tower in the morning. Some restaurants serve it as dessert.',
+            tip: 'Best eaten immediately — the jalebi should be hot and the milk cold. Ask for "taza jalebi" (fresh jalebi).'
+        }
+    }
+];
+
+// ============================================
+// RENDER FUNCTIONS
+// ============================================
+
+function openDetailPage(type, data) {
+    const w = window.open('', '_blank');
+    const accentColor = type === 'jodhpur' ? '#3D7EAA' : '#C47A2A';
+
+    let highlightsHtml = '';
+    if (data.detail.highlights) {
+        highlightsHtml = `
+            <div style="margin-bottom: 2rem;">
+                <h3 style="font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 0.8rem; color: ${accentColor};">Highlights</h3>
+                <ul style="list-style: none; padding: 0;">
+                    ${data.detail.highlights.map(h => `<li style="padding: 0.4rem 0; padding-left: 1.2rem; position: relative; font-size: 0.88rem; color: #5A3E2B; line-height: 1.5;"><span style="position: absolute; left: 0; color: ${accentColor};">•</span>${h}</li>`).join('')}
+                </ul>
+            </div>`;
+    }
+
+    let tipsHtml = '';
+    if (data.detail.tips) {
+        tipsHtml = `
+            <div style="margin-bottom: 2rem;">
+                <h3 style="font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 0.8rem; color: ${accentColor};">Tips</h3>
+                <ul style="list-style: none; padding: 0;">
+                    ${data.detail.tips.map(t => `<li style="padding: 0.4rem 0; padding-left: 1.2rem; position: relative; font-size: 0.88rem; color: #6B6B6B; line-height: 1.5;"><span style="position: absolute; left: 0; color: #B8963E;">→</span>${t}</li>`).join('')}
+                </ul>
+            </div>`;
+    }
+
+    let metaHtml = '';
+    if (data.detail.duration || data.detail.bestTime || data.detail.location) {
+        metaHtml = `
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; margin-bottom: 2rem; padding: 1.2rem; background: #FAF6F0; border-radius: 8px;">
+                ${data.detail.duration ? `<div><div style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 2px; color: #999; margin-bottom: 0.2rem;">Duration</div><div style="font-size: 0.88rem; font-weight: 500;">${data.detail.duration}</div></div>` : ''}
+                ${data.detail.bestTime ? `<div><div style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 2px; color: #999; margin-bottom: 0.2rem;">Best Time</div><div style="font-size: 0.88rem; font-weight: 500;">${data.detail.bestTime}</div></div>` : ''}
+                ${data.detail.location ? `<div><div style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 2px; color: #999; margin-bottom: 0.2rem;">Location</div><div style="font-size: 0.88rem; font-weight: 500;">${data.detail.location}</div></div>` : ''}
+            </div>`;
+    }
+
+    // Food-specific sections
+    let whereHtml = '';
+    if (data.detail.where) {
+        whereHtml = `
+            <div style="margin-bottom: 2rem;">
+                <h3 style="font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 0.5rem; color: ${accentColor};">Where to Try</h3>
+                <p style="font-size: 0.88rem; color: #5A3E2B; line-height: 1.6;">${data.detail.where}</p>
+            </div>`;
+    }
+
+    let tipSingleHtml = '';
+    if (data.detail.tip && !data.detail.tips) {
+        tipSingleHtml = `
+            <div style="padding: 1rem 1.2rem; background: #FFF6E5; border-radius: 8px; margin-bottom: 2rem;">
+                <p style="font-size: 0.85rem; color: #9A7520; line-height: 1.5;"><strong>Tip:</strong> ${data.detail.tip}</p>
+            </div>`;
+    }
+
+    const cityLabel = type === 'jodhpur' ? 'Jodhpur · The Blue City' :
+                      type === 'jaisalmer' ? 'Jaisalmer · The Golden City' :
+                      type === 'food' ? 'Taste of Rajasthan' : 'Experiences';
+
+    w.document.write(`<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>${data.title} — Rajasthan Trip</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body style="font-family: 'Inter', -apple-system, sans-serif; background: #FDFCFA; color: #1A1A1A; margin: 0; -webkit-font-smoothing: antialiased;">
+
+    <div style="height: 3px; background: linear-gradient(90deg, #6B2D2D, #C47A2A, #B8963E);"></div>
+
+    <div style="max-width: 680px; margin: 0 auto; padding: 3rem 2rem 4rem;">
+
+        <a href="javascript:window.close()" style="display: inline-flex; align-items: center; gap: 0.4rem; color: #999; text-decoration: none; font-size: 0.8rem; margin-bottom: 2rem; transition: color 0.2s;">← Back to trip</a>
+
+        <div style="margin-bottom: 0.5rem;">
+            <span style="font-size: 0.65rem; letter-spacing: 3px; text-transform: uppercase; color: ${accentColor}; font-weight: 600;">${cityLabel}</span>
+        </div>
+
+        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem;">
+            <span style="font-size: 2.5rem;">${data.emoji}</span>
+            <h1 style="font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; line-height: 1.2;">${data.title}</h1>
+        </div>
+
+        ${data.time ? `<div style="margin-bottom: 1.5rem;"><span style="font-size: 0.78rem; color: #6B6B6B;">⏱ ${data.time}</span></div>` : ''}
+
+        <div style="margin-bottom: 2rem;">
+            <p style="font-size: 0.95rem; color: #5A3E2B; line-height: 1.7;">${data.detail.overview}</p>
+        </div>
+
+        ${metaHtml}
+        ${highlightsHtml}
+        ${whereHtml}
+        ${tipsHtml}
+        ${tipSingleHtml}
+
+        <div style="padding-top: 2rem; border-top: 1px solid #E8E4DE; text-align: center;">
+            <p style="font-size: 0.75rem; color: #999;">Jaisalmer & Jodhpur 🐫🏰 · September 2026</p>
+        </div>
+    </div>
+
+</body>
+</html>`);
+    w.document.close();
+}
+
+function renderPlaceCard(place, type) {
+    const imgClass = type === 'jaisalmer' ? 'golden' : 'blue-city';
+    const priorityClass = place.priority === 'must' ? 'must' : place.priority === 'rec' ? 'rec' : 'opt';
+    const priorityLabel = place.priority === 'must' ? 'Must Visit' : place.priority === 'rec' ? 'Recommended' : 'Optional';
+
+    const card = document.createElement('div');
+    card.className = 'place-card fade-in';
+    card.onclick = () => openDetailPage(type, place);
+    card.innerHTML = `
+        <div class="place-card-img ${imgClass}">
+            ${place.emoji}
+            <span class="place-type-label">${place.type}</span>
+        </div>
+        <div class="place-card-body">
+            <h3>${place.title}</h3>
+            <p class="desc">${place.desc}</p>
+            <div class="place-card-footer">
+                <span class="place-time">⏱ ${place.time}</span>
+                <span class="place-link">Details →</span>
+            </div>
+        </div>`;
+    return card;
+}
+
+function renderExpCard(exp) {
+    const card = document.createElement('div');
+    card.className = 'exp-card fade-in';
+    card.onclick = () => openDetailPage('experience', exp);
+    card.innerHTML = `
+        <div class="exp-icon">${exp.emoji}</div>
+        <h3>${exp.title}</h3>
+        <p class="desc">${exp.desc}</p>
+        <div class="exp-card-footer">
+            <span class="tag ${exp.tagClass}">${exp.tag}</span>
+            <span class="place-link">Details →</span>
+        </div>`;
+    return card;
+}
+
+function renderFoodCard(food) {
+    const card = document.createElement('div');
+    card.className = 'food-card fade-in';
+    card.onclick = () => openDetailPage('food', food);
+    card.innerHTML = `
+        <div class="emoji">${food.emoji}</div>
+        <h4>${food.title}</h4>
+        <p>${food.desc}</p>
+        <div style="margin-top: 0.5rem;"><span class="place-link" style="font-size: 0.7rem;">Read more →</span></div>`;
+    return card;
+}
+
+// ============================================
+// RENDER ALL
+// ============================================
+
+const jGrid = document.getElementById('jaisalmer-grid');
+jaisalmerPlaces.forEach(p => jGrid.appendChild(renderPlaceCard(p, 'jaisalmer')));
+
+const joGrid = document.getElementById('jodhpur-grid');
+jodhpurPlaces.forEach(p => joGrid.appendChild(renderPlaceCard(p, 'jodhpur')));
+
+const eGrid = document.getElementById('exp-grid');
+experiences.forEach(e => eGrid.appendChild(renderExpCard(e)));
+
+const fGrid = document.getElementById('food-grid');
+foodItems.forEach(f => fGrid.appendChild(renderFoodCard(f)));
+
+// ============================================
+// SCROLL ANIMATION
+// ============================================
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const delay = entry.target.parentNode.children
+                ? Array.from(entry.target.parentNode.children).indexOf(entry.target) * 60
+                : 0;
+            setTimeout(() => entry.target.classList.add('visible'), Math.min(delay, 300));
+            observer.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// Nav mobile close on click
+document.querySelectorAll('nav a').forEach(link => {
+    link.addEventListener('click', () => document.querySelector('nav ul').classList.remove('active'));
+});
+
+// ============================================
+// EXPENSE TRACKER
+// ============================================
+
+const EXP_STORAGE_KEY = 'rajasthan-trip-expenses';
+let expExpenses = [];
+
+function expFormatMoney(n) {
+    return '₹' + Number(n).toLocaleString('en-IN');
+}
+
+function expFormatTime(iso) {
+    const d = new Date(iso);
+    return d.toLocaleString('en-IN', { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' });
+}
+
+function expEscapeHtml(str) {
+    const d = document.createElement('div');
+    d.textContent = str;
+    return d.innerHTML;
+}
+
+function expRender() {
+    const entriesEl = document.getElementById('expEntries');
+    const totalEl = document.getElementById('expTotalAmt');
+    const perPersonEl = document.getElementById('expPerPerson');
+    if (!entriesEl) return;
+
+    if (expExpenses.length === 0) {
+        entriesEl.innerHTML = '<div class="exp-empty">No expenses logged yet. Add the first one above.</div>';
+        totalEl.textContent = '₹0';
+        perPersonEl.innerHTML = '';
+        return;
+    }
+
+    const sorted = [...expExpenses].sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+    entriesEl.innerHTML = sorted.map(e => `
+        <div class="exp-entry">
+            <div>
+                <div class="exp-desc">${expEscapeHtml(e.desc)}</div>
+                <div class="exp-meta">${expEscapeHtml(e.payer)} · ${expFormatTime(e.timestamp)}</div>
+            </div>
+            <div class="exp-entry-right">
+                <div class="exp-amt">${expFormatMoney(e.amount)}</div>
+                <button class="exp-del" data-id="${e.id}" title="Remove">×</button>
+            </div>
+        </div>
+    `).join('');
+
+    entriesEl.querySelectorAll('.exp-del').forEach(btn => {
+        btn.addEventListener('click', () => expRemove(btn.dataset.id));
+    });
+
+    const total = expExpenses.reduce((sum, e) => sum + Number(e.amount), 0);
+    totalEl.textContent = expFormatMoney(total);
+
+    const byPerson = {};
+    expExpenses.forEach(e => {
+        byPerson[e.payer] = (byPerson[e.payer] || 0) + Number(e.amount);
+    });
+    perPersonEl.innerHTML = Object.entries(byPerson).map(([name, amt]) => `
+        <div><span>${expFormatMoney(amt)}</span>${expEscapeHtml(name)}</div>
+    `).join('');
+}
+
+async function expLoad() {
+    const statusEl = document.getElementById('expStatus');
+    if (!window.storage) {
+        statusEl.textContent = 'Storage unavailable in this view — entries won\'t be saved.';
+        expExpenses = [];
+        expRender();
+        return;
+    }
+    try {
+        const result = await window.storage.get(EXP_STORAGE_KEY, true);
+        expExpenses = result ? JSON.parse(result.value) : [];
+        statusEl.textContent = 'Synced · visible to everyone on the trip';
+    } catch (e) {
+        expExpenses = [];
+        statusEl.textContent = 'No saved expenses found yet — add your first one below.';
+    }
+    expRender();
+}
+
+async function expSave() {
+    const statusEl = document.getElementById('expStatus');
+    if (!window.storage) {
+        statusEl.textContent = 'Storage unavailable — this entry is only visible until you refresh.';
+        return;
+    }
+    try {
+        await window.storage.set(EXP_STORAGE_KEY, JSON.stringify(expExpenses), true);
+        statusEl.textContent = 'Synced · visible to everyone on the trip';
+    } catch (e) {
+        statusEl.textContent = 'Save failed: ' + (e && e.message ? e.message : 'unknown error');
+    }
+}
+
+async function expRemove(id) {
+    expExpenses = expExpenses.filter(e => e.id !== id);
+    expRender();
+    await expSave();
+}
+
+async function expHandleAdd() {
+    const submitBtn = document.getElementById('expSubmitBtn');
+    const statusEl = document.getElementById('expStatus');
+    statusEl.textContent = 'Working…';
+    statusEl.style.color = '';
+
+    const desc = document.getElementById('expDesc').value.trim();
+    const payer = document.getElementById('expPayer').value.trim();
+    const amount = document.getElementById('expAmount').value;
+
+    if (!desc || !payer || !amount) {
+        statusEl.textContent = 'Please fill in what it was for, who paid, and the amount.';
+        statusEl.style.color = 'var(--maroon)';
+        return;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Adding…';
+
+    try {
+        expExpenses.push({
+            id: Date.now().toString() + Math.random().toString(36).slice(2, 7),
+            desc, payer,
+            amount: Number(amount),
+            timestamp: new Date().toISOString()
+        });
+
+        expRender();
+        await expSave();
+
+        document.getElementById('expDesc').value = '';
+        document.getElementById('expPayer').value = '';
+        document.getElementById('expAmount').value = '';
+    } catch (e) {
+        statusEl.textContent = 'Something went wrong adding this entry: ' + (e && e.message ? e.message : e);
+        statusEl.style.color = 'var(--maroon)';
+    } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Add expense';
+    }
+}
+
+const expSubmitBtnEl = document.getElementById('expSubmitBtn');
+if (expSubmitBtnEl) {
+    expSubmitBtnEl.addEventListener('click', expHandleAdd);
+    expSubmitBtnEl.addEventListener('touchend', function(ev) {
+        ev.preventDefault();
+        expHandleAdd();
+    });
+}
+
+expLoad();
+</script>
+
+</body>
+</html>
+
+							<script>
+                            	
+							</script>
+                        </body>
+                        </html>
