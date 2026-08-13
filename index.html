@@ -1,48 +1,14 @@
 <!DOCTYPE html>
-                        <html lang="en">
-                        <head>
-							<!-- Add these lines inside your existing <head> tag -->
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" 
-      content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="CyberToolkit">
-<meta name="theme-color" content="#0a0e17">
-<link rel="apple-touch-icon" href="data:image/svg+xml,
-  <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>
-  <rect fill='%230a0e17' width='100' height='100' rx='20'/>
-  <text x='50' y='62' text-anchor='middle' font-size='50'>🔧</text>
-  </svg>">
-<link rel="manifest" href="manifest.json">
-
-<!-- Register service worker at end of your <script> -->
-<script>
-if('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('sw.js')
-    .then(() => console.log('SW registered'))
-    .catch(e => console.log('SW failed', e));
-}
-</script>
-                            <meta charset="UTF-8">
-                            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-							<style>
-								body {
-									background-color: white; /* Ensure the iframe has a white background */
-								}
-
-								
-							</style>
-                        </head>
-                        <body>
-                            <!DOCTYPE html>
 <html lang="en">
 <head>
-	
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light only">
     <title>Jaisalmer & Jodhpur 🐫🏰 | Sept 11–16</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
+            color-scheme: light;
             --sand: #D4A854;
             --sand-light: #FAF6F0;
             --saffron: #C47A2A;
@@ -58,6 +24,8 @@ if('serviceWorker' in navigator) {
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { color-scheme: light; background: #FDFCFA; }
 
         body {
             font-family: 'Inter', -apple-system, sans-serif;
@@ -282,6 +250,62 @@ if('serviceWorker' in navigator) {
         .exp-del:hover { color: var(--maroon); }
         .exp-empty { text-align: center; color: var(--text-tertiary); padding: 2rem 0; font-size: 0.85rem; }
         .exp-status { font-size: 0.72rem; color: var(--text-tertiary); text-align: center; margin-top: 1.2rem; }
+
+        /* ===== Detailed schedule tables ===== */
+        .sched-toggle {
+            margin-top: 0.9rem;
+        }
+        .sched-toggle summary {
+            cursor: pointer;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--maroon);
+            list-style: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+        }
+        .sched-toggle summary::-webkit-details-marker { display: none; }
+        .sched-toggle summary::before {
+            content: '▸';
+            font-size: 0.7rem;
+            transition: transform 0.2s ease;
+        }
+        .sched-toggle[open] summary::before { transform: rotate(90deg); }
+        .sched-table-wrap {
+            overflow-x: auto;
+            margin-top: 0.8rem;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+        }
+        table.sched-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.78rem;
+            min-width: 560px;
+        }
+        table.sched-table th {
+            background: var(--sand-light);
+            text-align: left;
+            padding: 0.55rem 0.7rem;
+            font-weight: 700;
+            color: var(--maroon);
+            border-bottom: 1px solid var(--border);
+            white-space: nowrap;
+        }
+        table.sched-table td {
+            padding: 0.55rem 0.7rem;
+            border-bottom: 1px solid var(--border);
+            vertical-align: top;
+            color: var(--text-secondary);
+        }
+        table.sched-table tr:last-child td { border-bottom: none; }
+        table.sched-table td:first-child {
+            white-space: nowrap;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        table.sched-table td:nth-child(2) { font-weight: 600; color: var(--text-primary); white-space: nowrap; }
 
         /* ===== Sections ===== */
         section { padding: 4rem 2rem; }
@@ -839,6 +863,23 @@ if('serviceWorker' in navigator) {
                         <span class="tag tag-green">BF + Dinner incl.</span>
                         <span class="tag tag-gold">🐪 Free camel ride</span>
                     </div>
+                    <details class="sched-toggle">
+                        <summary>View detailed hour-by-hour schedule</summary>
+                        <div class="sched-table-wrap">
+                            <table class="sched-table">
+                                <tr><th>Time</th><th>Stop</th><th>Spend</th><th>What to do / not miss</th></tr>
+                                <tr><td>9:00–11:00 AM</td><td>Jaisalmer Fort</td><td>2 hrs</td><td>⭐ Fort Palace → Jain Temples → main fort lanes → one panoramic viewpoint. Don't try to see every museum with kids.</td></tr>
+                                <tr><td>11:00–11:25 AM</td><td>Ghotua Ladoo stop</td><td>25 min</td><td>Try Jaisalmer's famous Ghotua Ladoo and buy a box to take home.</td></tr>
+                                <tr><td>11:30 AM–12:15 PM</td><td>Fort lanes / local shopping</td><td>45 min</td><td>Browse leather goods, handicrafts and small souvenirs. Keep serious shopping optional.</td></tr>
+                                <tr><td>12:30–1:45 PM</td><td>Lunch</td><td>75 min</td><td>Proper sit-down lunch and AC/rest break for kids.</td></tr>
+                                <tr><td>2:00–3:00 PM</td><td>Patwon Ki Haveli</td><td>60 min</td><td>⭐ Intricate sandstone façade, carved balconies, courtyards and mirror work.</td></tr>
+                                <tr><td>3:05–3:30 PM</td><td>Nathmal Ki Haveli + Old City lanes</td><td>25 min</td><td>Mainly admire the exterior façade and take photos; no need for a long visit.</td></tr>
+                                <tr><td>3:40–4:15 PM</td><td>Gadisar Lake</td><td>35 min</td><td>⭐ Tilon Ki Pol, lakefront walk and family photos. Skip boating if it makes you late for the desert.</td></tr>
+                                <tr><td>4:15–4:30 PM</td><td>Leave for desert camp</td><td>—</td><td>Drive toward Sam/desert.</td></tr>
+                                <tr><td>~5:15 PM onward</td><td>Desert / Dunes</td><td>—</td><td>Jeep/camel ride → sunset → camp → cultural programme → dinner.</td></tr>
+                            </table>
+                        </div>
+                    </details>
                 </div>
             </div>
             <div class="tl-item fade-in">
@@ -861,6 +902,25 @@ if('serviceWorker' in navigator) {
                         <span class="tag tag-blue">🏨 The Ummed Jodhpur</span>
                         <span class="tag tag-green">BF + Happy Hrs</span>
                     </div>
+                    <details class="sched-toggle">
+                        <summary>View detailed hour-by-hour schedule</summary>
+                        <div class="sched-table-wrap">
+                            <table class="sched-table">
+                                <tr><th>Time</th><th>Stop</th><th>Duration</th><th>What not to miss</th></tr>
+                                <tr><td>9:30–10:00 AM</td><td>Leave The Ummed</td><td>—</td><td></td></tr>
+                                <tr><td>10:30–11:10 AM</td><td>Jaswant Thada</td><td>40 min</td><td>Marble cenotaph, gardens, fort views.</td></tr>
+                                <tr><td>11:15 AM–1:15 PM</td><td>Mehrangarh Fort</td><td>2 hrs</td><td>Moti Mahal, Phool Mahal, Sheesh Mahal, ramparts.</td></tr>
+                                <tr><td>1:30–2:40 PM</td><td>Lunch — Shandar Sweet Home, or any other place in area</td><td>70 min</td><td>Gulab Jamun ki Sabzi + Govind Gatte.</td></tr>
+                                <tr><td>2:55–3:15 PM</td><td>Toorji Ka Jhalra</td><td>20 min</td><td>Stepwell + photos.</td></tr>
+                                <tr><td>3:20–4:00 PM</td><td>Clock Tower + Sardar Market</td><td>40 min</td><td>Market atmosphere, spices, handicrafts.</td></tr>
+                                <tr><td>4:00–4:20 PM</td><td>Food/rest break</td><td>20 min</td><td>Juice/coffee/ice cream for kids.</td></tr>
+                                <tr><td>4:30–5:15 PM</td><td>Blue City / Navchowkiya</td><td>45 min</td><td>Blue houses, lanes, doors — main spots are Moroccan House (take pic and sit back in cab), drop at Blue City main photo lanes and walk to Blue Corridor, then stairway to Pachetia Hill.</td></tr>
+                                <tr><td>5:15–6:15 PM</td><td>Pachetia Hill</td><td>60 min</td><td>Climb + views + evening light.</td></tr>
+                                <tr><td>6:15–6:35 PM</td><td>Walk down</td><td>20 min</td><td></td></tr>
+                                <tr><td>6:35 PM</td><td>Leave for dinner</td><td>—</td><td></td></tr>
+                            </table>
+                        </div>
+                    </details>
                 </div>
             </div>
             <div class="tl-item fade-in">
@@ -872,6 +932,25 @@ if('serviceWorker' in navigator) {
                         <span class="tag tag-blue">🏨 The Ummed Jodhpur</span>
                         <span class="tag tag-gold">🍽️ Mehran Terrace dinner</span>
                     </div>
+                    <details class="sched-toggle">
+                        <summary>View detailed hour-by-hour schedule</summary>
+                        <div class="sched-table-wrap">
+                            <table class="sched-table">
+                                <tr><th>Time</th><th>Stop</th><th>Spend</th><th>What to do / buy / eat</th></tr>
+                                <tr><td>9:30–10:00 AM</td><td>Leave The Ummed</td><td>—</td><td>Head directly towards Umaid Bhawan.</td></tr>
+                                <tr><td>10:30–11:40 AM</td><td>Umaid Bhawan Palace Museum</td><td>70 min</td><td>Palace architecture, royal memorabilia & vintage car collection; family photos outside palace.</td></tr>
+                                <tr><td>11:45 AM–1:15 PM</td><td>Hanwant Mahal — Lunch</td><td>90 min</td><td>Relaxed heritage lunch; enjoy elevated views. Try Laal Maas if you eat non-veg; otherwise Rajasthani/Indian dishes.</td></tr>
+                                <tr><td>1:30–2:05 PM</td><td>Soles & Shank — Sardarpura</td><td>35 min</td><td>Contemporary footwear; browse women's shoes, sandals & juttis.</td></tr>
+                                <tr><td>2:10–2:30 PM</td><td>Chaturbhuj — Sardarpura</td><td>20 min</td><td>⭐ Gulab Jamun — eat fresh + buy a box to take back.</td></tr>
+                                <tr><td>2:45–3:15 PM</td><td>Jodhpur Juti Corner — Station Rd</td><td>30 min</td><td>Shop for traditional Jodhpuri mojari/jutti; good place for kids' pairs too.</td></tr>
+                                <tr><td>3:00–6:45 PM — Nayi Sadak + Sadar Bazar</td><td>Janta Sweet Home — Nai Sarak</td><td>20 min</td><td>Share Pyaaz Kachori + Mirchi Bada; don't make this another full meal.</td></tr>
+                                <tr><td></td><td>Nai Sarak Shopping</td><td>1 hr 35 min</td><td>⭐ Main shopping: Bandhani/Bandhej dupattas, sarees, dress materials, mojari & Rajasthani textiles.</td></tr>
+                                <tr><td></td><td>Shri Mishrilal — Clock Tower</td><td>20 min</td><td>⭐ Famous Makhaniya Lassi; share initially as it's very rich.</td></tr>
+                                <tr><td></td><td>Clock Tower / quick photos</td><td>20 min</td><td>Clock Tower at evening; quick browse if kids still have energy.</td></tr>
+                                <tr><td>7:00 PM</td><td>Raas for dinner</td><td>—</td><td></td></tr>
+                            </table>
+                        </div>
+                    </details>
                 </div>
             </div>
             <div class="tl-item fade-in">
