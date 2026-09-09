@@ -320,6 +320,56 @@
         .fs-right .belt { font-weight: 700; color: var(--maroon); font-size: 0.95rem; }
         .fs-note { font-size: 0.7rem; color: var(--text-tertiary); margin-top: 0.6rem; }
 
+        /* ===== Weather ===== */
+        .weather-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 0.9rem;
+        }
+        .weather-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1.1rem 0.9rem;
+            text-align: center;
+        }
+        .weather-card .wc-date {
+            font-size: 0.68rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-tertiary);
+            margin-bottom: 0.2rem;
+        }
+        .weather-card .wc-city {
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: var(--saffron);
+            margin-bottom: 0.6rem;
+        }
+        .weather-card .wc-icon { font-size: 2rem; margin-bottom: 0.4rem; }
+        .weather-card .wc-temps {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.15rem;
+            font-weight: 700;
+        }
+        .weather-card .wc-temps .lo { color: var(--blue); font-weight: 500; font-size: 0.95rem; }
+        .weather-card .wc-desc {
+            font-size: 0.72rem;
+            color: var(--text-secondary);
+            margin-top: 0.3rem;
+        }
+        .weather-card .wc-rain {
+            font-size: 0.68rem;
+            color: var(--blue);
+            margin-top: 0.3rem;
+        }
+        .weather-note {
+            font-size: 0.72rem;
+            color: var(--text-tertiary);
+            text-align: center;
+            margin-top: 1.2rem;
+        }
+
         /* ===== Expenses ===== */
         .exp-summary {
             background: linear-gradient(135deg, var(--saffron), var(--maroon));
@@ -931,6 +981,7 @@
         <ul>
             <li><a href="#itinerary">Itinerary</a></li>
             <li><a href="#flights">Flights</a></li>
+            <li><a href="#weather">Weather</a></li>
             <li><a href="#stays">Stays</a></li>
             <li><a href="#jaisalmer">Jaisalmer</a></li>
             <li><a href="#jodhpur">Jodhpur</a></li>
@@ -1166,6 +1217,23 @@
             </div>
         </div>
         <p class="fs-note" id="fsGlobalNote">Live status, delays and baggage belt need a flight number + tracking API key — see FLIGHT_CONFIG at the top of the script below.</p>
+    </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- Weather -->
+<section id="weather">
+    <div class="container">
+        <div class="section-header">
+            <p class="overline">🥶 Pack Accordingly</p>
+            <h2>Live Forecast</h2>
+            <p>Pulled fresh each time the page loads — Jaisalmer for Sept 11–13, Jodhpur for Sept 13–16.</p>
+        </div>
+        <div class="weather-grid" id="weatherGrid">
+            <div class="weather-card"><div class="wc-desc">Loading forecast…</div></div>
+        </div>
+        <p class="weather-note" id="weatherNote"></p>
     </div>
 </section>
 
@@ -1488,7 +1556,7 @@ function showWakeBanner() {
     const banner = document.createElement('div');
     banner.className = 'wake-banner';
     banner.id = 'wakeBanner';
-    banner.innerHTML = '⏰ RISE AND SHINE — bags by the door, Uber is coming! <button class="close-wake" onclick="this.parentElement.remove()">×</button>';
+    banner.innerHTML = '⏰ RISE AND SHINE — bags by the door, TT is coming! <button class="close-wake" onclick="this.parentElement.remove()">×</button>';
     document.body.prepend(banner);
 }
 
@@ -1617,6 +1685,112 @@ if (flightNumbersSet) {
     const note = document.getElementById('fsGlobalNote');
     if (note) note.textContent = 'Add your flight numbers to FLIGHT_CONFIG at the top of the script to enable live status and baggage belt info.';
 }
+</script>
+
+<!-- ============================================
+     WEATHER — Open-Meteo (free, no API key needed)
+     ============================================ -->
+<script>
+// Open-Meteo has no key/signup requirement and allows browser CORS requests,
+// so this pulls a real live forecast each time the page loads. Weather
+// forecasts this far out are usually unreliable, but the trip is only a
+// couple of days away now, so the numbers below are genuine short-range
+// forecast data, not guesses.
+const WEATHER_STOPS = [
+    { date: '2026-09-11', city: 'Jaisalmer', lat: 26.9157, lon: 70.9083 },
+    { date: '2026-09-12', city: 'Jaisalmer', lat: 26.9157, lon: 70.9083 },
+    { date: '2026-09-13', city: 'Jodhpur',   lat: 26.2389, lon: 73.0243 },
+    { date: '2026-09-14', city: 'Jodhpur',   lat: 26.2389, lon: 73.0243 },
+    { date: '2026-09-15', city: 'Jodhpur',   lat: 26.2389, lon: 73.0243 },
+    { date: '2026-09-16', city: 'Jodhpur',   lat: 26.2389, lon: 73.0243 }
+];
+
+// WMO weather codes → emoji + short label
+function wmoToIcon(code) {
+    const map = {
+        0: ['☀️', 'Clear'], 1: ['🌤️', 'Mostly clear'], 2: ['⛅', 'Partly cloudy'], 3: ['☁️', 'Overcast'],
+        45: ['🌫️', 'Fog'], 48: ['🌫️', 'Fog'],
+        51: ['🌦️', 'Light drizzle'], 53: ['🌦️', 'Drizzle'], 55: ['🌧️', 'Dense drizzle'],
+        61: ['🌦️', 'Light rain'], 63: ['🌧️', 'Rain'], 65: ['🌧️', 'Heavy rain'],
+        80: ['🌦️', 'Rain showers'], 81: ['🌧️', 'Rain showers'], 82: ['⛈️', 'Violent showers'],
+        95: ['⛈️', 'Thunderstorm'], 96: ['⛈️', 'Thunderstorm'], 99: ['⛈️', 'Severe thunderstorm']
+    };
+    return map[code] || ['🌡️', 'Forecast'];
+}
+
+function formatShortDate(dateStr) {
+    const d = new Date(dateStr + 'T12:00:00');
+    return d.toLocaleDateString('en-IN', { weekday: 'short', day: 'numeric', month: 'short' });
+}
+
+async function loadWeather() {
+    const gridEl = document.getElementById('weatherGrid');
+    const noteEl = document.getElementById('weatherNote');
+    if (!gridEl) return;
+
+    // Group stops by unique coordinates to minimize API calls
+    const byLocation = {};
+    WEATHER_STOPS.forEach(s => {
+        const key = s.lat + ',' + s.lon;
+        if (!byLocation[key]) byLocation[key] = { lat: s.lat, lon: s.lon, city: s.city, dates: [] };
+        byLocation[key].dates.push(s.date);
+    });
+
+    try {
+        const results = {};
+        await Promise.all(Object.values(byLocation).map(async loc => {
+            const start = loc.dates[0];
+            const end = loc.dates[loc.dates.length - 1];
+            const url = `https://api.open-meteo.com/v1/forecast?latitude=${loc.lat}&longitude=${loc.lon}` +
+                `&daily=temperature_2m_max,temperature_2m_min,precipitation_probability_max,weathercode` +
+                `&timezone=Asia%2FKolkata&start_date=${start}&end_date=${end}`;
+            const res = await fetch(url);
+            if (!res.ok) throw new Error('Weather API error ' + res.status);
+            const data = await res.json();
+            data.daily.time.forEach((date, i) => {
+                results[date] = {
+                    max: Math.round(data.daily.temperature_2m_max[i]),
+                    min: Math.round(data.daily.temperature_2m_min[i]),
+                    rain: data.daily.precipitation_probability_max[i],
+                    code: data.daily.weathercode[i]
+                };
+            });
+        }));
+
+        gridEl.innerHTML = WEATHER_STOPS.map(stop => {
+            const d = results[stop.date];
+            if (!d) {
+                return `<div class="weather-card">
+                    <div class="wc-date">${formatShortDate(stop.date)}</div>
+                    <div class="wc-city">${stop.city}</div>
+                    <div class="wc-desc">Forecast not yet available</div>
+                </div>`;
+            }
+            const [icon, label] = wmoToIcon(d.code);
+            return `<div class="weather-card">
+                <div class="wc-date">${formatShortDate(stop.date)}</div>
+                <div class="wc-city">${stop.city}</div>
+                <div class="wc-icon">${icon}</div>
+                <div class="wc-temps">${d.max}° <span class="lo">/ ${d.min}°</span></div>
+                <div class="wc-desc">${label}</div>
+                <div class="wc-rain">☔ ${d.rain}% chance</div>
+            </div>`;
+        }).join('');
+
+        noteEl.textContent = 'Live forecast via Open-Meteo · refreshes each time you load the page';
+    } catch (err) {
+        gridEl.innerHTML = WEATHER_STOPS.map(stop => `
+            <div class="weather-card">
+                <div class="wc-date">${formatShortDate(stop.date)}</div>
+                <div class="wc-city">${stop.city}</div>
+                <div class="wc-desc">Forecast unavailable</div>
+            </div>`).join('');
+        noteEl.textContent = 'Could not reach the weather service — try reloading the page.';
+        console.error('Weather fetch failed', err);
+    }
+}
+
+loadWeather();
 </script>
 
 <script>
