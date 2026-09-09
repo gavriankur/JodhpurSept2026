@@ -173,97 +173,152 @@
 
         .route-arrow { color: var(--text-tertiary); font-size: 0.8rem; }
 
-        /* ===== Flight Countdown ===== */
-        .flight-countdown {
-            max-width: 560px;
-            margin: 0 auto 3rem;
-            padding: 1.6rem 1.8rem;
-            background: var(--sand-light);
-            border: 1px solid var(--border);
-            border-radius: 14px;
-            text-align: center;
+        /* ===== Countdown ===== */
+        .countdown-wrap {
+            margin-top: 2.5rem;
+            padding-top: 2.2rem;
+            border-top: 1px solid var(--border);
         }
 
-        .fc-label {
-            font-size: 0.7rem;
-            letter-spacing: 2px;
+        .countdown-label {
+            font-size: 0.65rem;
             text-transform: uppercase;
-            color: var(--saffron);
-            font-weight: 600;
-            margin-bottom: 0.9rem;
+            letter-spacing: 3px;
+            color: var(--text-tertiary);
+            margin-bottom: 1rem;
         }
 
-        .fc-timer {
+        .countdown-grid {
             display: flex;
             justify-content: center;
-            gap: 1.2rem;
-            margin-bottom: 0.4rem;
+            gap: 1rem;
+            flex-wrap: wrap;
         }
 
-        .fc-timer-unit { text-align: center; min-width: 48px; }
+        .countdown-unit {
+            background: var(--sand-light);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 0.9rem 1.1rem;
+            min-width: 74px;
+        }
 
-        .fc-timer-num {
+        .countdown-unit .num {
             font-family: 'Playfair Display', serif;
-            font-size: 2rem;
+            font-size: 1.7rem;
             font-weight: 700;
             color: var(--maroon);
             line-height: 1;
+            font-variant-numeric: tabular-nums;
         }
 
-        .fc-timer-unit-label {
+        .countdown-unit .unit-label {
             font-size: 0.6rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
             color: var(--text-tertiary);
-            margin-top: 0.3rem;
+            margin-top: 0.35rem;
         }
 
-        .fc-sub {
-            font-size: 0.8rem;
-            color: var(--text-secondary);
-            margin-top: 0.6rem;
-        }
-
-        .fc-live {
-            display: flex;
-            justify-content: center;
-            gap: 1.8rem;
-            flex-wrap: wrap;
-            margin-top: 0.4rem;
-        }
-
-        .fc-live-item { text-align: center; min-width: 90px; }
-
-        .fc-live-value {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: var(--maroon);
-        }
-
-        .fc-live-key {
-            font-size: 0.65rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--text-tertiary);
-            margin-top: 0.2rem;
-        }
-
-        .fc-status-badge {
-            display: inline-block;
-            padding: 0.25rem 0.8rem;
-            border-radius: 20px;
+        .countdown-sub {
             font-size: 0.75rem;
-            font-weight: 600;
-            background: #E8F4EA;
-            color: #2C7A3D;
+            color: var(--text-secondary);
+            margin-top: 1rem;
         }
 
-        .fc-note {
-            font-size: 0.72rem;
-            color: var(--text-tertiary);
-            margin-top: 0.8rem;
-            font-style: italic;
+        .countdown-departed {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: var(--maroon);
+            padding: 0.5rem 0;
         }
+
+        /* ===== Wake-up alarm banner (3 AM) ===== */
+        .wake-banner {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 3000;
+            background: var(--maroon);
+            color: #fff;
+            text-align: center;
+            padding: 0.9rem 1rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+            animation: wakePulse 1s infinite;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
+        }
+        @keyframes wakePulse {
+            0%, 100% { background: var(--maroon); }
+            50% { background: var(--saffron); }
+        }
+        .wake-banner .close-wake {
+            background: rgba(255,255,255,0.2);
+            border: none;
+            color: #fff;
+            border-radius: 50%;
+            width: 22px; height: 22px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            line-height: 1;
+            margin-left: 0.5rem;
+        }
+
+        /* ===== Confetti ===== */
+        .confetti-piece {
+            position: fixed;
+            top: -20px;
+            z-index: 3000;
+            pointer-events: none;
+            border-radius: 2px;
+            animation-name: confettiFall;
+            animation-timing-function: linear;
+            animation-fill-mode: forwards;
+        }
+        @keyframes confettiFall {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(105vh) rotate(720deg); opacity: 0.9; }
+        }
+
+        /* ===== Flight Status ===== */
+        .flight-status-card {
+            margin-top: 1rem;
+            padding: 1rem 1.2rem;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: var(--sand-light);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+
+        .fs-left { display: flex; flex-direction: column; gap: 0.15rem; }
+        .fs-num { font-size: 0.72rem; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 1px; }
+        .fs-status-line { font-size: 0.92rem; font-weight: 600; }
+
+        .fs-badge {
+            display: inline-block;
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 0.2rem 0.55rem;
+            border-radius: 4px;
+            margin-right: 0.5rem;
+        }
+        .fs-badge.ontime { background: #E8F5E8; color: #2E7D32; }
+        .fs-badge.delayed { background: #FDECEA; color: var(--maroon); }
+        .fs-badge.unknown { background: #F0F0F0; color: #777; }
+        .fs-badge.landed { background: #E8F1F8; color: var(--blue); }
+
+        .fs-right { text-align: right; font-size: 0.8rem; color: var(--text-secondary); }
+        .fs-right .belt { font-weight: 700; color: var(--maroon); font-size: 0.95rem; }
+        .fs-note { font-size: 0.7rem; color: var(--text-tertiary); margin-top: 0.6rem; }
 
         /* ===== Expenses ===== */
         .exp-summary {
@@ -846,6 +901,8 @@
             .hero h1 { font-size: 1.8rem; }
             .food-grid { grid-template-columns: 1fr 1fr; }
             .hero-meta { gap: 1.2rem; }
+            .countdown-unit { min-width: 62px; padding: 0.7rem 0.8rem; }
+            .countdown-unit .num { font-size: 1.35rem; }
         }
 
         /* ===== Fade ===== */
@@ -921,20 +978,13 @@
         <span class="route-arrow">→</span>
         <span class="route-city">✈ Bangalore</span>
     </div>
-</section>
 
-<div class="flight-countdown" id="flight-countdown">
-    <div class="fc-label" id="fc-label">Trip departs in</div>
-    <div id="fc-body">
-        <div class="fc-timer">
-            <div class="fc-timer-unit"><div class="fc-timer-num" id="fc-days">–</div><div class="fc-timer-unit-label">Days</div></div>
-            <div class="fc-timer-unit"><div class="fc-timer-num" id="fc-hours">–</div><div class="fc-timer-unit-label">Hrs</div></div>
-            <div class="fc-timer-unit"><div class="fc-timer-num" id="fc-mins">–</div><div class="fc-timer-unit-label">Min</div></div>
-            <div class="fc-timer-unit"><div class="fc-timer-num" id="fc-secs">–</div><div class="fc-timer-unit-label">Sec</div></div>
-        </div>
-        <div class="fc-sub" id="fc-sub">Bangalore → Jodhpur · Sept 11, 6:15 AM</div>
+    <div class="countdown-wrap">
+        <div class="countdown-label" id="countdownLabel">Counting down to wheels-up</div>
+        <div id="countdownBody"></div>
+        <div class="countdown-sub" id="countdownSub"></div>
     </div>
-</div>
+</section>
 
 <hr class="section-divider">
 
@@ -1035,7 +1085,8 @@
                     <h3>Jodhpur Immersion</h3>
                     <p>Blue City heritage walk, Umaid Bhawan Palace museum, Rao Jodha Desert Rock Park. Bazaar browsing at Sardar Market. Dinner at Raas — Noorvi's birthday.</p>
                     <div class="tl-tags">
-                        <span class="tag tag-gold">🎂 Noorvi's birthday dinner at Raas</span>
+                        <span class="tag tag-blue">🏨 The Ummed Jodhpur</span>
+                        <span class="tag tag-gold">🎂 Noorvi's birthday dinner</span>
                     </div>
                     <p style="margin-top: 0.7rem; font-size: 0.85rem; color: var(--text-secondary);">💡 It's a market-heavy day and Noorvi's birthday — worth pacing the afternoon stops a little easier so the kids have some wind-down time before heading to Raas for the birthday dinner.</p>
                     <details class="sched-toggle">
@@ -1090,6 +1141,13 @@
                 <div class="stay-detail"><span class="icon">🛫</span> Departure 6:15 AM · Bangalore T1</div>
                 <div class="stay-detail"><span class="icon">🛬</span> Arrival 8:45 AM · Jodhpur</div>
                 <div class="stay-detail"><span class="icon">⏱️</span> Duration ~2h 30m</div>
+                <div class="flight-status-card" id="fsOutbound">
+                    <div class="fs-left">
+                        <div class="fs-num" id="fsOutboundNum">Flight number not set</div>
+                        <div class="fs-status-line"><span class="fs-badge unknown">Status unavailable</span></div>
+                    </div>
+                    <div class="fs-right" id="fsOutboundRight"></div>
+                </div>
             </div>
 
             <div class="stay-card fade-in">
@@ -1098,8 +1156,16 @@
                 <div class="stay-detail"><span class="icon">🛫</span> Departure 9:20 AM · Jodhpur</div>
                 <div class="stay-detail"><span class="icon">🛬</span> Arrival 12:05 PM · Bangalore</div>
                 <div class="stay-detail"><span class="icon">⏱️</span> Duration ~2h 45m</div>
+                <div class="flight-status-card" id="fsReturn">
+                    <div class="fs-left">
+                        <div class="fs-num" id="fsReturnNum">Flight number not set</div>
+                        <div class="fs-status-line"><span class="fs-badge unknown">Status unavailable</span></div>
+                    </div>
+                    <div class="fs-right" id="fsReturnRight"></div>
+                </div>
             </div>
         </div>
+        <p class="fs-note" id="fsGlobalNote">Live status, delays and baggage belt need a flight number + tracking API key — see FLIGHT_CONFIG at the top of the script below.</p>
     </div>
 </section>
 
@@ -1348,6 +1414,165 @@
     <p>Jaisalmer & Jodhpur 🐫🏰 · Bangalore → Rajasthan · September 2026</p>
     <p style="margin-top: 0.3rem;">Padharo Mhare Des — Welcome to Our Land</p>
 </footer>
+
+<!-- ============================================
+     COUNTDOWN + FLIGHT STATUS
+     ============================================ -->
+<script>
+// ---- Configure your flights here ----
+// carrier: 2-letter IATA airline code (e.g. "6E" for IndiGo, "AI" for Air India)
+// number: the flight number only (e.g. "2341")
+// If flightNumbersSet is false, live status/baggage-belt stay hidden and only
+// the countdown (which needs no API) runs.
+const FLIGHT_CONFIG = {
+    apiProvider: 'aerodatabox',      // via RapidAPI — https://rapidapi.com/aedbx-aedbx/api/aerodatabox
+    rapidApiKey: '',                 // paste your RapidAPI key here
+    outbound: { carrier: '', number: '', date: '2026-09-11' }, // e.g. carrier:'6E', number:'2341'
+    return:   { carrier: '', number: '', date: '2026-09-16' },
+    refreshMinutes: 15
+};
+
+const flightNumbersSet = !!(FLIGHT_CONFIG.outbound.carrier && FLIGHT_CONFIG.outbound.number);
+const apiKeySet = !!FLIGHT_CONFIG.rapidApiKey;
+
+// ---- Countdown: targets the actual outbound departure time ----
+// Bangalore is IST (UTC+5:30) — encoded explicitly so the countdown is correct
+// regardless of the viewer's own timezone.
+const OUTBOUND_DEPARTURE_IST = '2026-09-11T06:15:00+05:30';
+
+function renderCountdown() {
+    const target = new Date(OUTBOUND_DEPARTURE_IST).getTime();
+    const now = Date.now();
+    const diff = target - now;
+
+    const labelEl = document.getElementById('countdownLabel');
+    const bodyEl = document.getElementById('countdownBody');
+    const subEl = document.getElementById('countdownSub');
+    if (!bodyEl) return;
+
+    if (diff <= 0) {
+        labelEl.textContent = 'Wheels up';
+        bodyEl.innerHTML = '<div class="countdown-departed">✈️ The outbound flight has departed — enjoy the trip!</div>';
+        subEl.textContent = '';
+        return;
+    }
+
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((diff / (1000 * 60)) % 60);
+    const seconds = Math.floor((diff / 1000) % 60);
+
+    bodyEl.innerHTML = `
+        <div class="countdown-grid">
+            <div class="countdown-unit"><div class="num">${days}</div><div class="unit-label">Days</div></div>
+            <div class="countdown-unit"><div class="num">${String(hours).padStart(2,'0')}</div><div class="unit-label">Hrs</div></div>
+            <div class="countdown-unit"><div class="num">${String(minutes).padStart(2,'0')}</div><div class="unit-label">Min</div></div>
+            <div class="countdown-unit"><div class="num">${String(seconds).padStart(2,'0')}</div><div class="unit-label">Sec</div></div>
+        </div>`;
+    subEl.textContent = 'Until BLR → JDH departs, 6:15 AM IST · Sept 11, 2026';
+}
+
+renderCountdown();
+setInterval(renderCountdown, 1000);
+
+// ---- Flight status + baggage belt (AeroDataBox via RapidAPI) ----
+// Baggage belt numbers are typically only published by the arrival airport
+// close to/after landing, and not every provider/airport exposes them — so
+// this shows "Not yet assigned" until the data is actually available rather
+// than guessing.
+
+function fsSetPlaceholder(prefix, carrier, number) {
+    const numEl = document.getElementById(prefix + 'Num');
+    if (carrier && number) {
+        numEl.textContent = `${carrier} ${number}`;
+    }
+}
+fsSetPlaceholder('fsOutbound', FLIGHT_CONFIG.outbound.carrier, FLIGHT_CONFIG.outbound.number);
+fsSetPlaceholder('fsReturn', FLIGHT_CONFIG.return.carrier, FLIGHT_CONFIG.return.number);
+
+function fsBadge(status, isDelayed) {
+    if (isDelayed) return `<span class="fs-badge delayed">Delayed</span>`;
+    if (status === 'Landed' || status === 'Arrived') return `<span class="fs-badge landed">Landed</span>`;
+    if (status === 'Unknown' || !status) return `<span class="fs-badge unknown">Status unavailable</span>`;
+    return `<span class="fs-badge ontime">${status}</span>`;
+}
+
+async function fetchFlightStatus(prefix, cfg) {
+    const statusLineParent = document.querySelector('#fs' + prefix.replace('fs','') + ' .fs-status-line');
+    const rightEl = document.getElementById('fs' + prefix.replace('fs','') + 'Right');
+
+    if (!cfg.carrier || !cfg.number) {
+        return; // no flight number configured — leave the static placeholder as-is
+    }
+    if (!apiKeySet) {
+        if (statusLineParent) statusLineParent.innerHTML = fsBadge('Unknown', false);
+        if (rightEl) rightEl.textContent = 'Add a RapidAPI key to FLIGHT_CONFIG for live status';
+        return;
+    }
+
+    const flightNum = cfg.carrier + cfg.number;
+    const url = `https://aerodatabox.p.rapidapi.com/flights/number/${flightNum}/${cfg.date}`;
+
+    try {
+        const res = await fetch(url, {
+            headers: {
+                'X-RapidAPI-Key': FLIGHT_CONFIG.rapidApiKey,
+                'X-RapidAPI-Host': 'aerodatabox.p.rapidapi.com'
+            }
+        });
+        if (!res.ok) throw new Error('API error ' + res.status);
+        const data = await res.json();
+        const flight = Array.isArray(data) ? data[0] : data;
+        if (!flight) throw new Error('No flight data returned');
+
+        const status = flight.status || 'Unknown';
+        const dep = flight.departure || {};
+        const arr = flight.arrival || {};
+        const schedDep = dep.scheduledTime && dep.scheduledTime.local;
+        const revisedDep = dep.revisedTime && dep.revisedTime.local;
+        const isDelayed = !!(revisedDep && schedDep && revisedDep !== schedDep);
+
+        let delayMinutes = 0;
+        if (isDelayed) {
+            delayMinutes = Math.round((new Date(revisedDep) - new Date(schedDep)) / 60000);
+        }
+
+        if (statusLineParent) {
+            statusLineParent.innerHTML = fsBadge(status, isDelayed) +
+                (isDelayed ? ` <span style="font-size:0.8rem; color:var(--maroon);">+${delayMinutes} min</span>` : '');
+        }
+
+        // Baggage belt — only meaningful for the arrival airport, and only once assigned
+        const belt = arr.baggageBelt;
+        let rightHtml = '';
+        if (dep.gate) rightHtml += `Gate ${dep.gate}<br>`;
+        if (belt) {
+            rightHtml += `<span class="belt">Belt ${belt}</span>`;
+        } else {
+            rightHtml += `Baggage belt: not yet assigned`;
+        }
+        if (rightEl) rightEl.innerHTML = rightHtml;
+
+    } catch (err) {
+        if (statusLineParent) statusLineParent.innerHTML = fsBadge('Unknown', false);
+        if (rightEl) rightEl.textContent = 'Could not fetch live status';
+        console.error('Flight status fetch failed for', prefix, err);
+    }
+}
+
+function refreshAllFlightStatus() {
+    fetchFlightStatus('fsOutbound', FLIGHT_CONFIG.outbound);
+    fetchFlightStatus('fsReturn', FLIGHT_CONFIG.return);
+}
+
+if (flightNumbersSet) {
+    refreshAllFlightStatus();
+    setInterval(refreshAllFlightStatus, FLIGHT_CONFIG.refreshMinutes * 60 * 1000);
+} else {
+    const note = document.getElementById('fsGlobalNote');
+    if (note) note.textContent = 'Add your flight numbers to FLIGHT_CONFIG at the top of the script to enable live status and baggage belt info.';
+}
+</script>
 
 <script>
 // ============================================
@@ -2451,146 +2676,5 @@ if (expSubmitBtnEl) {
 }
 </script>
 
-<script>
-// ===== Flight Countdown & Live Status =====
-(function() {
-    const FLIGHTS = [
-        {
-            key: 'outbound',
-            route: 'Bangalore → Jodhpur',
-            from: 'BLR', to: 'JDH',
-            dep: '2026-09-11T06:15:00+05:30',
-            arr: '2026-09-11T08:45:00+05:30',
-            depLabel: 'Sept 11, 6:15 AM',
-            // flightNumber: 'XX000', // TODO: add flight number for live status lookup
-        },
-        {
-            key: 'return',
-            route: 'Jodhpur → Bangalore',
-            from: 'JDH', to: 'BLR',
-            dep: '2026-09-16T09:20:00+05:30',
-            arr: '2026-09-16T12:05:00+05:30',
-            depLabel: 'Sept 16, 9:20 AM',
-            // flightNumber: 'XX000', // TODO: add flight number for live status lookup
-        }
-    ];
-
-    const LANDED_GRACE_MIN = 75; // how long after landing we keep showing the baggage-belt panel
-
-    const el = {
-        widget: document.getElementById('flight-countdown'),
-        label: document.getElementById('fc-label'),
-        body: document.getElementById('fc-body'),
-    };
-
-    function fmt2(n) { return String(n).padStart(2, '0'); }
-
-    function renderCountdown(flight, msLeft) {
-        const totalSec = Math.max(0, Math.floor(msLeft / 1000));
-        const days = Math.floor(totalSec / 86400);
-        const hours = Math.floor((totalSec % 86400) / 3600);
-        const mins = Math.floor((totalSec % 3600) / 60);
-        const secs = totalSec % 60;
-
-        el.label.textContent = flight.key === 'outbound' ? 'Trip departs in' : 'Return flight departs in';
-        el.body.innerHTML = `
-            <div class="fc-timer">
-                <div class="fc-timer-unit"><div class="fc-timer-num">${days}</div><div class="fc-timer-unit-label">Days</div></div>
-                <div class="fc-timer-unit"><div class="fc-timer-num">${fmt2(hours)}</div><div class="fc-timer-unit-label">Hrs</div></div>
-                <div class="fc-timer-unit"><div class="fc-timer-num">${fmt2(mins)}</div><div class="fc-timer-unit-label">Min</div></div>
-                <div class="fc-timer-unit"><div class="fc-timer-num">${fmt2(secs)}</div><div class="fc-timer-unit-label">Sec</div></div>
-            </div>
-            <div class="fc-sub">${flight.route} · ${flight.depLabel}</div>
-        `;
-    }
-
-    async function fetchLiveStatus(flight) {
-        // No live flight-data source is wired up yet (needs a flight number + API key).
-        // This function is the single place to plug one in — see chat for setup steps.
-        if (!flight.flightNumber) return null;
-        try {
-            // Example shape once wired up:
-            // const res = await fetch(`https://<your-flight-api-endpoint>?flight=${flight.flightNumber}&date=...`);
-            // const data = await res.json();
-            // return { status: data.status, gate: data.gate, baggageBelt: data.baggageBelt };
-            return null;
-        } catch (e) {
-            return null;
-        }
-    }
-
-    async function renderLive(flight, phase) {
-        el.label.textContent = phase === 'landed'
-            ? (flight.key === 'outbound' ? 'Landed in Jodhpur' : 'Landed in Bangalore')
-            : 'Flight in progress';
-
-        const live = await fetchLiveStatus(flight);
-
-        if (phase === 'landed') {
-            el.body.innerHTML = `
-                <div class="fc-live">
-                    <div class="fc-live-item">
-                        <div class="fc-live-value">${live && live.baggageBelt ? live.baggageBelt : '—'}</div>
-                        <div class="fc-live-key">Baggage Belt</div>
-                    </div>
-                    <div class="fc-live-item">
-                        <div class="fc-status-badge">${live && live.status ? live.status : 'Landed'}</div>
-                        <div class="fc-live-key">Status</div>
-                    </div>
-                </div>
-                <div class="fc-sub">${flight.route}</div>
-                ${!live ? '<div class="fc-note">Live baggage belt data isn\'t connected yet — check the airport arrivals screen.</div>' : ''}
-            `;
-        } else {
-            el.body.innerHTML = `
-                <div class="fc-live">
-                    <div class="fc-live-item">
-                        <div class="fc-status-badge">${live && live.status ? live.status : 'In progress'}</div>
-                        <div class="fc-live-key">Status</div>
-                    </div>
-                    <div class="fc-live-item">
-                        <div class="fc-live-value">${live && live.gate ? live.gate : '—'}</div>
-                        <div class="fc-live-key">Gate</div>
-                    </div>
-                </div>
-                <div class="fc-sub">${flight.route}</div>
-                ${!live ? '<div class="fc-note">Live gate & status data isn\'t connected yet — check the airport departure board.</div>' : ''}
-            `;
-        }
-    }
-
-    function tick() {
-        const now = new Date();
-
-        for (const flight of FLIGHTS) {
-            const dep = new Date(flight.dep);
-            const arr = new Date(flight.arr);
-            const landedUntil = new Date(arr.getTime() + LANDED_GRACE_MIN * 60000);
-
-            if (now < dep) {
-                renderCountdown(flight, dep - now);
-                return;
-            }
-            if (now >= dep && now < arr) {
-                renderLive(flight, 'inflight');
-                return;
-            }
-            if (now >= arr && now < landedUntil) {
-                renderLive(flight, 'landed');
-                return;
-            }
-            // else: past this flight's window entirely, fall through to next flight
-        }
-
-        // Past both flights' windows
-        el.widget.style.display = 'none';
-    }
-
-    tick();
-    setInterval(tick, 1000);
-})();
-</script>
-
 </body>
 </html>
-                    
