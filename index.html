@@ -1475,6 +1475,51 @@ function renderCountdown() {
 renderCountdown();
 setInterval(renderCountdown, 1000);
 
+// ---- 3 AM wake-up alarm + wheels-up confetti ----
+// Alarm fires when it's actually time to get up; confetti is saved for the
+// moment the flight itself departs, not the rude-awakening moment.
+const WAKE_UP_IST = '2026-09-11T03:00:00+05:30';
+let wakeBannerShown = false;
+let confettiFired = false;
+
+function showWakeBanner() {
+    if (wakeBannerShown || document.getElementById('wakeBanner')) return;
+    wakeBannerShown = true;
+    const banner = document.createElement('div');
+    banner.className = 'wake-banner';
+    banner.id = 'wakeBanner';
+    banner.innerHTML = '⏰ RISE AND SHINE — bags by the door, TT is coming! <button class="close-wake" onclick="this.parentElement.remove()">×</button>';
+    document.body.prepend(banner);
+}
+
+function launchConfetti() {
+    if (confettiFired) return;
+    confettiFired = true;
+    const colors = ['#C47A2A', '#6B2D2D', '#B8963E', '#3D7EAA', '#D4A854', '#2E7D32'];
+    const count = 140;
+    for (let i = 0; i < count; i++) {
+        const piece = document.createElement('div');
+        piece.className = 'confetti-piece';
+        const size = 6 + Math.random() * 8;
+        piece.style.left = Math.random() * 100 + 'vw';
+        piece.style.width = size + 'px';
+        piece.style.height = (size * 0.4) + 'px';
+        piece.style.background = colors[Math.floor(Math.random() * colors.length)];
+        piece.style.animationDuration = (2.5 + Math.random() * 2) + 's';
+        piece.style.animationDelay = (Math.random() * 0.6) + 's';
+        document.body.appendChild(piece);
+        setTimeout(() => piece.remove(), 6000);
+    }
+}
+
+function checkAlarmsAndConfetti() {
+    const now = Date.now();
+    if (now >= new Date(WAKE_UP_IST).getTime()) showWakeBanner();
+    if (now >= new Date(OUTBOUND_DEPARTURE_IST).getTime()) launchConfetti();
+}
+checkAlarmsAndConfetti();
+setInterval(checkAlarmsAndConfetti, 1000);
+
 // ---- Flight status + baggage belt (AeroDataBox via RapidAPI) ----
 // Baggage belt numbers are typically only published by the arrival airport
 // close to/after landing, and not every provider/airport exposes them — so
