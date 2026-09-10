@@ -173,6 +173,60 @@
 
         .route-arrow { color: var(--text-tertiary); font-size: 0.8rem; }
 
+        /* ===== Today Card ===== */
+        .today-card {
+            margin-top: 2.2rem;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.3rem 1.5rem;
+            text-align: left;
+            max-width: 480px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .today-card .tc-label {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 2.5px;
+            color: var(--saffron);
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+        .today-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            margin-bottom: 0.7rem;
+        }
+        .today-card ul {
+            list-style: none;
+            padding: 0;
+        }
+        .today-card li {
+            font-size: 0.83rem;
+            color: var(--text-secondary);
+            padding: 0.25rem 0;
+            padding-left: 1.1rem;
+            position: relative;
+            line-height: 1.4;
+        }
+        .today-card li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--gold);
+            font-weight: 700;
+        }
+        .today-card.pre-trip, .today-card.post-trip {
+            text-align: center;
+            background: var(--sand-light);
+        }
+        .today-card.pre-trip h3, .today-card.post-trip h3 { margin-bottom: 0.3rem; }
+        .today-card.pre-trip p, .today-card.post-trip p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
         /* ===== Countdown ===== */
         .countdown-wrap {
             margin-top: 2.5rem;
@@ -1030,6 +1084,8 @@
         <span class="route-city">✈ Bangalore</span>
     </div>
 
+    <div id="todayCard"></div>
+
     <div class="countdown-wrap">
         <div class="countdown-label" id="countdownLabel">Counting down to wheels-up</div>
         <div id="countdownBody"></div>
@@ -1588,6 +1644,83 @@ function checkAlarmsAndConfetti() {
 checkAlarmsAndConfetti();
 setInterval(checkAlarmsAndConfetti, 1000);
 
+// ---- Today Card: shows the current day's plan at a glance ----
+const TRIP_DAYS = [
+    { date: '2026-09-11', dayNum: 1, title: 'Arrive in Jaisalmer', bullets: [
+        'Fly BLR → JDH, then drive to Sam Sand Dunes',
+        'Check in at Le Royal Camps after 3 PM',
+        'Camel ride 4:30–6 PM · folk night & dinner from 7 PM'
+    ]},
+    { date: '2026-09-12', dayNum: 2, title: 'Jaisalmer Fort & Palace Day', bullets: [
+        'Full day: Jaisalmer Fort, Patwon Ki Haveli, Gadisar Lake',
+        'Back at camp by sunset',
+        'Folk music, cultural show & DJ tonight'
+    ]},
+    { date: '2026-09-13', dayNum: 3, title: 'Jaisalmer → Jodhpur by Road', bullets: [
+        'Check out of camp by 10:30 AM',
+        '~285 km drive · lunch stop at Khusbhoo Haveli, Pokhran',
+        'Check in at The Ummed Jodhpur after 2 PM'
+    ]},
+    { date: '2026-09-14', dayNum: 4, title: 'Jodhpur Heritage Day', bullets: [
+        'Mehrangarh Fort (9 AM), Jaswant Thada, Toorji Ka Jhalra',
+        'Pool & Happy Hours in the afternoon',
+        'Clock Tower market walk & Mishrilal Lassi tonight'
+    ]},
+    { date: '2026-09-15', dayNum: 5, title: "Jodhpur Immersion 🎂", bullets: [
+        'Blue City walk, Umaid Bhawan Palace, Rao Jodha Park',
+        'Bazaar browsing at Sardar Market',
+        "Raas — Noorvi's birthday dinner at 7 PM"
+    ]},
+    { date: '2026-09-16', dayNum: 6, title: 'Departure', bullets: [
+        'Check out by 12 PM',
+        '8 AM airport drop in the Tempo Traveller',
+        'Fly JDH → BLR'
+    ]}
+];
+
+function todayInIST() {
+    // Format "today" as YYYY-MM-DD in IST regardless of the viewer's own timezone
+    const now = new Date();
+    const istString = now.toLocaleString('en-CA', { timeZone: 'Asia/Kolkata' }); // en-CA gives YYYY-MM-DD
+    return istString.split(',')[0];
+}
+
+function renderTodayCard() {
+    const el = document.getElementById('todayCard');
+    if (!el) return;
+    const today = todayInIST();
+    const match = TRIP_DAYS.find(d => d.date === today);
+
+    if (match) {
+        el.innerHTML = `
+            <div class="today-card">
+                <div class="tc-label">Day ${match.dayNum} of 6 · Today</div>
+                <h3>${match.title}</h3>
+                <ul>${match.bullets.map(b => `<li>${b}</li>`).join('')}</ul>
+            </div>`;
+        return;
+    }
+
+    if (today < TRIP_DAYS[0].date) {
+        el.innerHTML = `
+            <div class="today-card pre-trip">
+                <h3>Trip hasn't started yet</h3>
+                <p>First up on ${TRIP_DAYS[0].date}: ${TRIP_DAYS[0].title}</p>
+            </div>`;
+    } else if (today > TRIP_DAYS[TRIP_DAYS.length - 1].date) {
+        el.innerHTML = `
+            <div class="today-card post-trip">
+                <h3>🐫 Trip's a wrap!</h3>
+                <p>Hope Jaisalmer and Jodhpur were everything you hoped for.</p>
+            </div>`;
+    } else {
+        el.innerHTML = '';
+    }
+}
+
+renderTodayCard();
+setInterval(renderTodayCard, 60 * 1000); // re-check once a minute in case the day rolls over
+
 // ---- Flight status + baggage belt (AeroDataBox via RapidAPI) ----
 // Baggage belt numbers are typically only published by the arrival airport
 // close to/after landing, and not every provider/airport exposes them — so
@@ -1742,7 +1875,7 @@ async function loadWeather() {
             const start = loc.dates[0];
             const end = loc.dates[loc.dates.length - 1];
             const url = `https://api.open-meteo.com/v1/forecast?latitude=${loc.lat}&longitude=${loc.lon}` +
-                `&daily=temperature_2m_max,temperature_2m_min,precipitation_probability_max,weathercode` +
+                `&daily=temperature_2m_max,temperature_2m_min,precipitation_probability_max,weather_code` +
                 `&timezone=Asia%2FKolkata&start_date=${start}&end_date=${end}`;
             const res = await fetch(url);
             if (!res.ok) throw new Error('Weather API error ' + res.status);
@@ -1752,7 +1885,7 @@ async function loadWeather() {
                     max: Math.round(data.daily.temperature_2m_max[i]),
                     min: Math.round(data.daily.temperature_2m_min[i]),
                     rain: data.daily.precipitation_probability_max[i],
-                    code: data.daily.weathercode[i]
+                    code: data.daily.weather_code[i]
                 };
             });
         }));
@@ -1785,7 +1918,7 @@ async function loadWeather() {
                 <div class="wc-city">${stop.city}</div>
                 <div class="wc-desc">Forecast unavailable</div>
             </div>`).join('');
-        noteEl.textContent = 'Could not reach the weather service — try reloading the page.';
+        noteEl.textContent = 'Could not reach the weather service (' + (err && err.message ? err.message : 'unknown error') + ') — try reloading the page.';
         console.error('Weather fetch failed', err);
     }
 }
